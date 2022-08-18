@@ -9,7 +9,9 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/comics`);
+        const response = await axios.get(
+          `https://tpk-marvel-backend.herokuapp.com/comics`
+        );
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -18,13 +20,6 @@ function App() {
     };
     fetchData();
   }, []);
-
-  // const test = data.results;
-  // console.log(test);
-  // test.map((element) => {
-
-  //   return element.title;
-  // });
 
   return isLoading ? (
     <span>Nous feuilletons les oeuvres</span>
