@@ -5,12 +5,14 @@ import { useState, useEffect } from "react";
 function App() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [skip, setSkip] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://tpk-marvel-backend.herokuapp.com/comics`
+          `https://tpk-marvel-backend.herokuapp.com/comics?skip=${skip}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -19,7 +21,7 @@ function App() {
       }
     };
     fetchData();
-  }, []);
+  }, [skip]);
 
   return isLoading ? (
     <span>Nous feuilletons les oeuvres</span>
@@ -38,6 +40,29 @@ function App() {
             </div>
           );
         })}
+      </div>
+      <div className="buttons">
+        {page !== 1 && (
+          <button
+            onClick={() => {
+              setIsLoading(true);
+              setPage(page - 1);
+              setSkip(skip - 50);
+            }}
+          >
+            Précédent
+          </button>
+        )}
+        <span className="page">{page}</span>
+        <button
+          onClick={() => {
+            setIsLoading(true);
+            setPage(page + 1);
+            setSkip(skip + 50);
+          }}
+        >
+          Suivant
+        </button>
       </div>
     </div>
   );
