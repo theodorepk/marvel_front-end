@@ -1,3 +1,18 @@
+/* HEADER */
+header {
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2Opx;
+  height: 50px;
+}
+
+.logo {
+  height: 45px;
+}
+
+/* HOME */
 .allComics {
   display: flex;
   /* flex-direction: column; */

@@ -1,6 +1,7 @@
 import "./App.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Header from "./components/Header";
 
 function App() {
   const [data, setData] = useState();
@@ -27,6 +28,7 @@ function App() {
     <span>Nous feuilletons les oeuvres</span>
   ) : (
     <div className="App">
+      <Header />
       <div className="allComics">
         {data.results.map((element, index) => {
           return (
