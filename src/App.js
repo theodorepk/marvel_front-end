@@ -1,12 +1,14 @@
 import "./App.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
+import Home from "./pages/Home";
 
 function App() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [page, setPage] = useState(1);
+
   const [skip, setSkip] = useState(0);
 
   useEffect(() => {
@@ -24,49 +26,24 @@ function App() {
     fetchData();
   }, [skip]);
 
-  return isLoading ? (
-    <span>Nous feuilletons les oeuvres</span>
-  ) : (
-    <div className="App">
+  return (
+    <Router>
       <Header />
-      <div className="allComics">
-        {data.results.map((element, index) => {
-          return (
-            <div key={index} className="comics">
-              <span className="comicsTitle">{element.title}</span>;
-              <img
-                className="comicsCover"
-                src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
-                alt="couverture du comics"
-              />
-            </div>
-          );
-        })}
-      </div>
-      <div className="buttons">
-        {page !== 1 && (
-          <button
-            onClick={() => {
-              setIsLoading(true);
-              setPage(page - 1);
-              setSkip(skip - 50);
-            }}
-          >
-            Précédent
-          </button>
-        )}
-        <span className="page">{page}</span>
-        <button
-          onClick={() => {
-            setIsLoading(true);
-            setPage(page + 1);
-            setSkip(skip + 50);
-          }}
-        >
-          Suivant
-        </button>
-      </div>
-    </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              data={data}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+              setSkip={setSkip}
+              skip={skip}
+            />
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 

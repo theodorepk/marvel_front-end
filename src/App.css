@@ -19,6 +19,7 @@ header {
   /* background-color: green; */
   flex-wrap: wrap;
   justify-content: space-around;
+  margin-top: 10px;
 }
 
 .comicsTitle {
