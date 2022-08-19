@@ -25,10 +25,20 @@ function App() {
     <span>Nous feuilletons les oeuvres</span>
   ) : (
     <div className="App">
-      hey
-      {data.results.map((element, index) => {
-        return <span key={index}>{element.title}</span>;
-      })}
+      <div className="allComics">
+        {data.results.map((element, index) => {
+          return (
+            <div key={index} className="comics">
+              <span className="comicsTitle">{element.title}</span>;
+              <img
+                className="comicsCover"
+                src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
+                alt="couverture du comics"
+              />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
