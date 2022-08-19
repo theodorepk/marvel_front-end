@@ -1,10 +1,17 @@
 import logo from "../assets/Marvel_Logo.svg";
 
-const Header = () => {
+const Header = ({ setTitle }) => {
   return (
     <header>
       <img src={logo} alt="logo Marvel" className="logo" />
-      <input type="text" />
+      <input
+        type="text"
+        placeholder="Votre comics préféré"
+        onChange={(event) => {
+          setTitle(event.target.value);
+        }}
+        // value={title}
+      />
       <button>Se Connecter</button>
     </header>
   );

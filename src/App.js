@@ -10,12 +10,13 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   const [skip, setSkip] = useState(0);
+  const [title, setTitle] = useState(``);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://tpk-marvel-backend.herokuapp.com/comics?skip=${skip}`
+          `https://tpk-marvel-backend.herokuapp.com/comics?skip=${skip}&title=${title}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -24,11 +25,11 @@ function App() {
       }
     };
     fetchData();
-  }, [skip]);
+  }, [skip, title]);
 
   return (
     <Router>
-      <Header />
+      <Header title={title} setTitle={setTitle} />
       <Routes>
         <Route
           path="/"
@@ -42,6 +43,7 @@ function App() {
             />
           }
         />
+        {/* <Route path="/"/> */}
       </Routes>
     </Router>
   );
