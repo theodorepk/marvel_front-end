@@ -44,8 +44,8 @@ const Comics = ({ title, isLoading, setIsLoading }) => {
           <button
             onClick={() => {
               setIsLoading(true);
-              setPage(page - 1);
-              setSkip(skip - 50);
+              setPage((prevState) => prevState - 1);
+              setSkip((prevState) => prevState - 50);
             }}
           >
             Précédent
@@ -55,8 +55,8 @@ const Comics = ({ title, isLoading, setIsLoading }) => {
         <button
           onClick={() => {
             setIsLoading(true);
-            setPage(page + 1);
-            setSkip(skip + 50);
+            setPage((prevState) => prevState + 1);
+            setSkip((prevState) => prevState + 50);
           }}
         >
           Suivant
