@@ -14,6 +14,20 @@ header {
   height: 45px;
 }
 
+.menu {
+  color: white;
+  margin: 10px;
+}
+
+.loupe {
+  color: white;
+}
+
+.searchBar {
+  border: 1px solid black;
+  background-color: black;
+}
+
 /* HOME */
 .allComics,
 .allCharacters {

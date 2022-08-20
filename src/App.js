@@ -6,19 +6,19 @@ import Header from "./components/Header";
 import Characters from "./pages/Characters";
 import Comics from "./pages/Comics";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-library.add(faBars);
+import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+library.add(faBars, faMagnifyingGlass);
 
 function App() {
-  const [title, setTitle] = useState(``);
+  const [search, setSearch] = useState(``);
 
   return (
     <>
       <Router>
-        <Header setTitle={setTitle} />
+        <Header setSearch={setSearch} title={search} />
         <Routes>
-          <Route path="/" element={<Characters title={title} />} />
-          <Route path="/comics" element={<Comics title={title} />} />
+          <Route path="/" element={<Characters name={search} />} />
+          <Route path="/comics" element={<Comics title={search} />} />
         </Routes>
       </Router>
     </>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Characters = ({ title }) => {
+const Characters = ({ name }) => {
   const [page, setPage] = useState(1);
   const [data, setData] = useState();
   const [skip, setSkip] = useState(0);
@@ -11,7 +11,7 @@ const Characters = ({ title }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://tpk-marvel-backend.herokuapp.com/characters?skip=${skip}&name=${title}`
+          `https://tpk-marvel-backend.herokuapp.com/characters?skip=${skip}&name=${name}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -20,7 +20,7 @@ const Characters = ({ title }) => {
       }
     };
     fetchData();
-  }, [skip, title]);
+  }, [skip, name]);
 
   return isLoading ? (
     <span>Nous feuilletons les oeuvres</span>
@@ -45,8 +45,8 @@ const Characters = ({ title }) => {
           <button
             onClick={() => {
               setIsLoading(true);
-              setPage(page - 1); //more secure then setState(state +1)
-              setSkip(skip - 50);
+              setPage((prevState) => prevState - 1); //more secure then setState(state +1)
+              setSkip((prevState) => prevState - 50);
             }}
           >
             Précédent
@@ -56,8 +56,8 @@ const Characters = ({ title }) => {
         <button
           onClick={() => {
             setIsLoading(true);
-            setPage(page + 1);
-            setSkip(skip + 50);
+            setPage((prevState) => prevState + 1);
+            setSkip((prevState) => prevState + 50);
           }}
         >
           Suivant
