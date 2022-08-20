@@ -1,19 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-const Home = ({ data, isLoading, setIsLoading, setSkip, skip }) => {
+const Characters = ({ title, isLoading, setIsLoading }) => {
   const [page, setPage] = useState(1);
+  const [data, setData] = useState();
+  const [skip, setSkip] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://tpk-marvel-backend.herokuapp.com/characters?skip=${skip}&name=${title}`
+        );
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+    fetchData();
+  }, [skip, title]);
 
   return isLoading ? (
     <span>Nous feuilletons les oeuvres</span>
   ) : (
-    <div className="App">
-      <div className="allComics">
+    <div className="charactersPage">
+      <div className="allCharacters">
         {data.results.map((element, index) => {
           return (
-            <div key={index} className="comics">
-              <span className="comicsTitle">{element.title}</span>;
+            <div key={index} className="character">
+              <span className="characterName">{element.name}</span>
               <img
-                className="comicsCover"
+                className="characterPicture"
                 src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
                 alt="couverture du comics"
               />
@@ -48,4 +66,4 @@ const Home = ({ data, isLoading, setIsLoading, setSkip, skip }) => {
   );
 };
 
-export default Home;
+export default Characters;

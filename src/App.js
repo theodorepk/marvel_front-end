@@ -1,49 +1,39 @@
 import "./App.css";
-import axios from "axios";
+
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Home from "./pages/Home";
+import Characters from "./pages/Characters";
+import Comics from "./pages/Comics";
 
 function App() {
-  const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-
-  const [skip, setSkip] = useState(0);
   const [title, setTitle] = useState(``);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `https://tpk-marvel-backend.herokuapp.com/comics?skip=${skip}&title=${title}`
-        );
-        setData(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error.response);
-      }
-    };
-    fetchData();
-  }, [skip, title]);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <Router>
-      <Header title={title} setTitle={setTitle} />
+      <Header setTitle={setTitle} />
       <Routes>
         <Route
           path="/"
           element={
-            <Home
-              data={data}
+            <Characters
+              title={title}
               isLoading={isLoading}
               setIsLoading={setIsLoading}
-              setSkip={setSkip}
-              skip={skip}
             />
           }
         />
-        {/* <Route path="/"/> */}
+        <Route
+          path="/comics"
+          element={
+            <Comics
+              title={title}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
+          }
+        />
       </Routes>
     </Router>
   );

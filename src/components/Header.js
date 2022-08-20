@@ -1,9 +1,19 @@
 import logo from "../assets/Marvel_Logo.svg";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ setTitle }) => {
+  const navigate = useNavigate();
+
   return (
     <header>
-      <img src={logo} alt="logo Marvel" className="logo" />
+      <img
+        onClick={() => {
+          navigate("/");
+        }}
+        src={logo}
+        alt="logo Marvel"
+        className="logo"
+      />
       <input
         type="text"
         placeholder="Votre comics préféré"

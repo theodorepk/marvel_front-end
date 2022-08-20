@@ -13,7 +13,8 @@ header {
 }
 
 /* HOME */
-.allComics {
+.allComics,
+.allCharacters {
   display: flex;
   /* flex-direction: column; */
   /* background-color: green; */
@@ -22,11 +23,13 @@ header {
   margin-top: 10px;
 }
 
-.comicsTitle {
+.comicsTitle,
+.characterName {
   font-size: 12px;
 }
 
-.comics {
+.comics,
+.character {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
@@ -34,7 +37,8 @@ header {
   border: 3px solid black;
 }
 
-.comicsCover {
+.comicsCover,
+.characterPicture {
   height: 200px;
   width: 132px;
   display: flex;
