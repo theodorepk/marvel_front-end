@@ -1,15 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Characters = ({
-  title,
-  // isLoading,
-  // setIsLoading
-}) => {
+const Characters = ({ title }) => {
   const [page, setPage] = useState(1);
   const [data, setData] = useState();
   const [skip, setSkip] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true); //isLoading state need to be delcare directly here (not in App.js)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,7 +45,7 @@ const Characters = ({
           <button
             onClick={() => {
               setIsLoading(true);
-              setPage(page - 1);
+              setPage(page - 1); //more secure then setState(state +1)
               setSkip(skip - 50);
             }}
           >
