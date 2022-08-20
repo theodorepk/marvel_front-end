@@ -7,16 +7,24 @@ const Navigation = ({ setVisible }) => {
   return (
     <nav className="navigation">
       <Link to={"/"} className="link">
-        <FontAwesomeIcon icon="fa-mask fa-10x" />
+        <div>
+          {/* div are here to increase the click zone without enlarge the icons */}
+          <FontAwesomeIcon icon="fa-mask" size="xl" />
+        </div>
       </Link>
-      <FontAwesomeIcon
-        icon="magnifying-glass"
-        className="loupe"
-        onClick={() => setVisible((prevState) => !prevState)} //clicking on the magnifying-glass set visible or not the search bar
-      />
+      <div>
+        <FontAwesomeIcon
+          icon="magnifying-glass"
+          className="loupe"
+          onClick={() => setVisible((prevState) => !prevState)} //clicking on the magnifying-glass set visible or not the search bar
+          size="xl"
+        />
+      </div>
 
       <Link to={"/comics"} className="link">
-        <FontAwesomeIcon icon="book" />
+        <div>
+          <FontAwesomeIcon icon="book" size="xl" />{" "}
+        </div>
       </Link>
     </nav>
   );
