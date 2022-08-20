@@ -6,6 +6,8 @@ header {
   justify-content: space-between;
   margin-bottom: 2Opx;
   height: 50px;
+  position: sticky;
+  top: 0px;
 }
 
 .logo {

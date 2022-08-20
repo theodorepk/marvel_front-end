@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Characters = ({ title, isLoading, setIsLoading }) => {
+const Characters = ({
+  title,
+  // isLoading,
+  // setIsLoading
+}) => {
   const [page, setPage] = useState(1);
   const [data, setData] = useState();
   const [skip, setSkip] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {

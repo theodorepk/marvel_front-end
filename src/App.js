@@ -12,7 +12,7 @@ function App() {
 
   return (
     <Router>
-      <Header setTitle={setTitle} />
+      <Header setTitle={setTitle} setIsLoading={setIsLoading} />
       <Routes>
         <Route
           path="/"

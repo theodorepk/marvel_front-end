@@ -1,14 +1,15 @@
 import logo from "../assets/Marvel_Logo.svg";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ setTitle }) => {
-  const navigate = useNavigate();
+const Header = ({ setTitle, setIsLoading }) => {
+  const navigate = useNavigate(0);
 
   return (
     <header>
       <img
         onClick={() => {
           navigate("/");
+          setIsLoading(true); //isLoading is true when the home page loading
         }}
         src={logo}
         alt="logo Marvel"
