@@ -129,8 +129,8 @@ header {
   overflow-x: scroll;
 }
 
-.test img {
+.highlight img {
   height: 250px;
   width: 162px;
-  border: 1px red solid;
+  transition-duration: 0.5s;
 }

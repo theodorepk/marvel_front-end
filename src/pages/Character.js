@@ -10,10 +10,7 @@ const Character = () => {
   const [title, setTitle] = useState(``); //Dynamic title when user choose a comics
   const [description, setDescription] = useState(``); //Dynamic description when user choose a comics
 
-  const [highLight, setHighLight] = useState();
-
-  //   const highlighting = () => {
-  //
+  const [highLight, setHighLight] = useState(); //Use to define what comics is highlighted
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,17 +21,19 @@ const Character = () => {
         setData(response.data);
         setIsLoading(false);
 
-        const newTab = [];
-
-        const test = (par) => {
+        const newTab = []; //will replace highlight
+        const highLighting = (par) => {
           for (let i = 0; i < par; i++) {
-            newTab.push(false);
+            if (i === 0) {
+              //the first comics will be highlight
+              newTab.push(true);
+            } else {
+              newTab.push(false);
+            }
           }
         };
-
-        test(response.data.comics.length);
-        console.log(newTab);
-        setHighLight(newTab);
+        highLighting(response.data.comics.length);
+        setHighLight(newTab); //Array with the first element "true", all the other are "false"
       } catch (error) {
         console.log(error.response);
       }
@@ -43,7 +42,7 @@ const Character = () => {
   }, [id]);
 
   return isLoading ? (
-    <span>test</span>
+    <span>Loading</span>
   ) : (
     <div className="characterPage">
       <div className="characterPresentation">
@@ -61,24 +60,20 @@ const Character = () => {
           return (
             <CharacterComics
               key={index}
-              key2={index}
+              index={index}
               comicsInfo={element}
               setTitle={setTitle} //send to the component, states will changes with an Onclick on the component
               setDescription={setDescription} // onClick cannot be setup here
-              className={highLight[index] && `test`}
-              setHighLight={setHighLight}
+              setHighLight={setHighLight} //hightLight will change with onClick event
               highLight={highLight}
             />
           );
         })}
-        {/* {data.comics.map((element) => {
-          return highlighting;
-        })} */}
       </div>
       <div className="comicsHiglight">
         <div>
-          <h3>{title ? title : data.comics[0].title}</h3>{" "}
           {/*the  default informations are from the first comics books of the database*/}
+          <h3>{title ? title : data.comics[0].title}</h3>
           <p>{description ? description : data.comics[0].description}</p>
         </div>
         <img src="" alt="" />

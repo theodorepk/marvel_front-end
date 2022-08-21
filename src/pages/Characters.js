@@ -33,9 +33,6 @@ const Characters = ({ name }) => {
             <Link
               key={index}
               className="character"
-              onClick={() => {
-                console.log(element._id);
-              }}
               to={`/character/${element._id}`} //go to character by id
             >
               <span className="characterName">{element.name}</span>
