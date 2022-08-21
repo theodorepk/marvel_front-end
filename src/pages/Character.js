@@ -55,29 +55,35 @@ const Character = () => {
           <p>{data.description}</p>
         </div>
       </div>
-      <div className="characterComics">
-        {data.comics.map((element, index) => {
-          return (
-            <CharacterComics
-              key={index}
-              index={index}
-              comicsInfo={element}
-              setTitle={setTitle} //send to the component, states will changes with an Onclick on the component
-              setDescription={setDescription} // onClick cannot be setup here
-              setHighLight={setHighLight} //hightLight will change with onClick event
-              highLight={highLight}
-            />
-          );
-        })}
-      </div>
-      <div className="comicsHiglight">
-        <div>
-          {/*the  default informations are from the first comics books of the database*/}
-          <h3>{title ? title : data.comics[0].title}</h3>
-          <p>{description ? description : data.comics[0].description}</p>
-        </div>
-        <img src="" alt="" />
-      </div>
+      {data.comics.length ? (
+        <>
+          <div className="characterComics">
+            {data.comics.map((element, index) => {
+              return (
+                <CharacterComics
+                  key={index}
+                  index={index}
+                  comicsInfo={element}
+                  setTitle={setTitle} //send to the component, states will changes with an Onclick on the component
+                  setDescription={setDescription} // onClick cannot be setup here
+                  setHighLight={setHighLight} //hightLight will change with onClick event
+                  highLight={highLight}
+                />
+              );
+            })}
+          </div>
+          <div className="comicsHiglight">
+            <div>
+              {/*the  default informations are from the first comics books of the database*/}
+              <h3>{title ? title : data.comics[0].title}</h3>
+              <p>{description ? description : data.comics[0].description}</p>
+            </div>
+            <img src="" alt="" />
+          </div>
+        </>
+      ) : (
+        <span>no comics</span>
+      )}
     </div>
   );
 };
