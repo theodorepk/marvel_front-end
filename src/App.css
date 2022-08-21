@@ -103,6 +103,11 @@ header {
 
 /* CHARACTER */
 
+.characterPage {
+  display: flex;
+  flex-direction: column;
+}
+
 .characterPresentation {
   display: flex;
 }
@@ -113,4 +118,13 @@ header {
 
 .characterPresentation img {
   width: 180px;
+}
+
+/* CharacterComics */
+
+.characterComics {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  overflow-x: scroll;
 }

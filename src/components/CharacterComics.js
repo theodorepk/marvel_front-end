@@ -1,13 +1,17 @@
-const CharacterComics = ({ element }) => {
-  console.log(element);
+const CharacterComics = ({ comicsInfo }) => {
+  console.log(comicsInfo);
 
   return (
     <div>
       <div>
-        <h3>{}</h3>
+        <h3>{comicsInfo.title}</h3>
         <span></span>
       </div>
-      <img src="" alt="" />
+      <img
+        src={`${comicsInfo.thumbnail.path}.${comicsInfo.thumbnail.extension}`}
+        alt=""
+        className="comicsCover"
+      />
     </div>
   );
 };

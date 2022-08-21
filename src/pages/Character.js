@@ -36,12 +36,12 @@ const Character = () => {
           <h2>{data.name}</h2>
           <p>{data.description}</p>
         </div>
-        <div className="characterComcis"></div>
       </div>
-      {data.comics.map((element, index) => {
-        return console.log(element);
-        // <CharacterComics key={index} comicsInfo={element} />;
-      })}
+      <div className="characterComics">
+        {data.comics.map((element, index) => {
+          return <CharacterComics key={index} comicsInfo={element} />;
+        })}
+      </div>
     </div>
   );
 };
