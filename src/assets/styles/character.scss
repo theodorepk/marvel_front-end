@@ -1,0 +1,33 @@
+/* CHARACTER */
+
+.characterPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.characterPresentation {
+  display: flex;
+  h2 {
+    font-size: 24px;
+  }
+  img {
+    width: 180px;
+  }
+}
+
+/* CharacterComics */
+
+.characterComics {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.highlight {
+  img {
+    height: 250px;
+    width: 162px;
+    transition-duration: 0.5s;
+  }
+}

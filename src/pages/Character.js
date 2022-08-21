@@ -82,7 +82,7 @@ const Character = () => {
           </div>
         </>
       ) : (
-        <span>no comics</span>
+        <span>Aucun comics n'a été trouvé concernant cet individu</span>
       )}
     </div>
   );
