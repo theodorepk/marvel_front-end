@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Characters = ({ name }) => {
@@ -29,39 +30,47 @@ const Characters = ({ name }) => {
       <div className="allCharacters">
         {data.results.map((element, index) => {
           return (
-            <div key={index} className="character">
+            <Link
+              key={index}
+              className="character"
+              onClick={() => {
+                console.log(element._id);
+              }}
+              to={`/character/${element._id}`} //go to character by id
+            >
               <span className="characterName">{element.name}</span>
               <img
                 className="characterPicture"
                 src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
                 alt="couverture du comics"
               />
-            </div>
+            </Link>
           );
         })}
-      </div>
-      <div className="buttons">
-        {page !== 1 && (
+
+        <div className="buttons">
+          {page !== 1 && (
+            <button
+              onClick={() => {
+                setIsLoading(true);
+                setPage((prevState) => prevState - 1); //more secure then setState(state +1)
+                setSkip((prevState) => prevState - 50);
+              }}
+            >
+              Précédent
+            </button>
+          )}
+          <span className="page">{page}</span>
           <button
             onClick={() => {
               setIsLoading(true);
-              setPage((prevState) => prevState - 1); //more secure then setState(state +1)
-              setSkip((prevState) => prevState - 50);
+              setPage((prevState) => prevState + 1);
+              setSkip((prevState) => prevState + 50);
             }}
           >
-            Précédent
+            Suivant
           </button>
-        )}
-        <span className="page">{page}</span>
-        <button
-          onClick={() => {
-            setIsLoading(true);
-            setPage((prevState) => prevState + 1);
-            setSkip((prevState) => prevState + 50);
-          }}
-        >
-          Suivant
-        </button>
+        </div>
       </div>
     </div>
   );
