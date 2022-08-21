@@ -1,5 +1,10 @@
 /* CHARACTER */
 
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 .characterPage {
   display: flex;
   flex-direction: column;
@@ -28,6 +33,6 @@
   img {
     height: 250px;
     width: 162px;
-    transition-duration: 0.5s;
+    transition-duration: 0.5s; //the size change smoothly
   }
 }

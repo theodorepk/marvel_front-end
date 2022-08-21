@@ -4,5 +4,7 @@
 @import "./assets/styles/navigation.scss";
 
 .container {
-  height: 100vh; //the content will take all the place and the "footer" will stick to the bottom on mobile
+  height: calc(
+    100vh - 100px
+  ); //the content will take all the place and the "footer" will stick to the bottom on mobile (-100px (Header + Navigation height), some pages started under the header)
 }
