@@ -24,7 +24,9 @@ const Characters = ({ name }) => {
   }, [skip, name]);
 
   return isLoading ? (
-    <span>Nous feuilletons les oeuvres</span>
+    <div className="container">
+      <span>Nous feuilletons les oeuvres</span>
+    </div>
   ) : (
     <div className="charactersPage">
       <div className="allCharacters">

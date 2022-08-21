@@ -42,9 +42,11 @@ const Character = () => {
   }, [id]);
 
   return isLoading ? (
-    <span>Loading</span>
+    <div className="container">
+      <span>Loading</span>
+    </div>
   ) : (
-    <div className="characterPage">
+    <div className="characterPage container">
       <div className="characterPresentation">
         <img
           src={`${data.thumbnail.path}.${data.thumbnail.extension}`}

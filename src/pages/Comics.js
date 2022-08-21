@@ -23,7 +23,9 @@ const Comics = ({ title }) => {
   }, [skip, title]);
 
   return isLoading ? (
-    <span>Nous feuilletons les oeuvres</span>
+    <div className="container">
+      <span>Nous feuilletons les oeuvres</span>
+    </div>
   ) : (
     <div className="comicsPage">
       <div className="allComics">
