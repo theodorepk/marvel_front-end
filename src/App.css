@@ -128,3 +128,9 @@ header {
   overflow: hidden;
   overflow-x: scroll;
 }
+
+.test img {
+  height: 250px;
+  width: 162px;
+  border: 1px red solid;
+}
