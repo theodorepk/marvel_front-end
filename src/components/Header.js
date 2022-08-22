@@ -19,7 +19,7 @@ const Header = ({ search, setSearch, visible }) => {
           className="logo"
         />
       )}
-      {/* <div className={visible ? "searchBar" : undefined}>
+      <div className={visible ? "searchBar" : undefined}>
         {visible && (
           <input
             type="text"
@@ -30,10 +30,10 @@ const Header = ({ search, setSearch, visible }) => {
             value={search}
           />
         )}
-      </div> */}
+      </div>
 
       <button>
-        <FontAwesomeIcon icon="fa-solid fa-arrow-right-to-bracket" size="2xl" />
+        <FontAwesomeIcon icon="fa-solid fa-user" size="2xl" />{" "}
       </button>
     </header>
   );

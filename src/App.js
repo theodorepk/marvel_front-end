@@ -12,10 +12,18 @@ import {
   faMagnifyingGlass,
   faMask,
   faBook,
-  faArrowRightToBracket,
+  faUser,
+  // faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import Navigation from "./components/Navigation";
-library.add(faBars, faMagnifyingGlass, faMask, faBook, faArrowRightToBracket);
+library.add(
+  faBars,
+  faMagnifyingGlass,
+  faMask,
+  faBook,
+  faUser
+  //  faArrowRightToBracket
+);
 
 function App() {
   const [search, setSearch] = useState(``);

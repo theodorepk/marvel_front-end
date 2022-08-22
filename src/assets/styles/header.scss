@@ -30,8 +30,16 @@ header {
 }
 
 .searchBar {
-  border: 1px solid black;
-  background-color: black;
+  // border: 1px solid black;
+  // background-color: black;
+  flex: 1;
+  display: flex;
+  input {
+    height: 30px;
+    flex: 1;
+    border-radius: 2px;
+    border: 1px solid black;
+  }
 }
 
 button {
