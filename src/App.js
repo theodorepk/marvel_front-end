@@ -13,6 +13,7 @@ import {
   faMask,
   faBook,
   faUser,
+  faAngleRight,
   // faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import Navigation from "./components/Navigation";
@@ -21,7 +22,8 @@ library.add(
   faMagnifyingGlass,
   faMask,
   faBook,
-  faUser
+  faUser,
+  faAngleRight
   //  faArrowRightToBracket
 );
 
@@ -33,7 +35,12 @@ function App() {
   return (
     <>
       <Router>
-        <Header setSearch={setSearch} title={search} visible={visible} />
+        <Header
+          setSearch={setSearch}
+          title={search}
+          visible={visible}
+          setVisible={setVisible}
+        />
         <Routes>
           <Route path="/" element={<Characters name={search} />} />
           <Route path="/comics" element={<Comics title={search} />} />

@@ -2,12 +2,22 @@ import logo from "../assets/Marvel_Logo.svg";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Header = ({ search, setSearch, visible }) => {
+const Header = ({ search, setSearch, visible, setVisible }) => {
   const navigate = useNavigate();
 
   return (
     <header>
-      <div className="hidden"></div>
+      <div className="hidden">
+        {visible && (
+          <FontAwesomeIcon
+            icon="fa-solid fa-angle-right"
+            size="xl"
+            onClick={() => {
+              setVisible(false);
+            }}
+          />
+        )}
+      </div>
       {/* <FontAwesomeIcon icon="bars" className="menu" /> */}
       {!visible && (
         <img
@@ -19,7 +29,7 @@ const Header = ({ search, setSearch, visible }) => {
           className="logo"
         />
       )}
-      <div className={visible ? "searchBar" : undefined}>
+      {/* <div className={visible ? "searchBar" : "searchBarHidden"}>
         {visible && (
           <input
             type="search"
@@ -30,6 +40,17 @@ const Header = ({ search, setSearch, visible }) => {
             value={search}
           />
         )}
+      </div> */}
+      <div className={visible ? "sbContainer" : undefined}>
+        <input
+          className={visible ? "searchBar" : "searchBarHidden"}
+          type="search"
+          placeholder="Votre comics préféré"
+          onChange={(event) => {
+            setSearch(event.target.value);
+          }}
+          value={search}
+        />
       </div>
 
       <button>

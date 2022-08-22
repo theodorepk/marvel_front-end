@@ -23,7 +23,7 @@ const Navigation = ({ setVisible }) => {
 
       <Link to={"/comics"} className="link">
         <div>
-          <FontAwesomeIcon icon="book" size="xl" />{" "}
+          <FontAwesomeIcon icon="book" size="xl" />
         </div>
       </Link>
     </nav>
