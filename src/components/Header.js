@@ -22,7 +22,7 @@ const Header = ({ search, setSearch, visible }) => {
       <div className={visible ? "searchBar" : undefined}>
         {visible && (
           <input
-            type="text"
+            type="search"
             placeholder="Votre comics préféré"
             onChange={(event) => {
               setSearch(event.target.value);
