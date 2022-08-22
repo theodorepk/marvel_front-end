@@ -2,8 +2,6 @@
 .allComics,
 .allCharacters {
   display: flex;
-  /* flex-direction: column; */
-  /* background-color: green; */
   flex-wrap: wrap;
   justify-content: space-around;
   margin-top: 10px;
@@ -11,7 +9,7 @@
 
 .comicsTitle,
 .characterName {
-  font-size: 12px;
+  font-size: 18px;
 }
 
 .comics,
@@ -19,18 +17,29 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  width: 150px;
-  border: 3px solid black;
-}
+  width: 175px;
+  height: 175px;
+  // border: 3px solid black;
+  position: relative;
+  z-index: -1;
 
-.comicsCover,
-.characterPicture {
-  height: 200px;
-  width: 132px;
-  display: flex;
-  align-self: center;
-  margin: 10px;
-  object-fit: cover;
+  h2 {
+    position: absolute;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    text-align: center;
+    color: white;
+  }
+
+  .comicsCover,
+  .characterPicture {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-self: center;
+    object-fit: cover;
+  }
 }
 
 .buttons {

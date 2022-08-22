@@ -37,12 +37,12 @@ const Characters = ({ name }) => {
               className="character"
               to={`/character/${element._id}`} //go to character by id
             >
-              <span className="characterName">{element.name}</span>
               <img
                 className="characterPicture"
                 src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
                 alt="couverture du comics"
               />
+              <h2 className="characterName">{element.name}</h2>
             </Link>
           );
         })}

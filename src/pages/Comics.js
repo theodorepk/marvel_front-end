@@ -32,12 +32,12 @@ const Comics = ({ title }) => {
         {data.results.map((element, index) => {
           return (
             <div key={index} className="comics">
-              <span className="comicsTitle">{element.title}</span>
               <img
                 className="comicsCover"
                 src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
                 alt="couverture du comics"
               />
+              <h2 className="comicsTitle">{element.title}</h2>
             </div>
           );
         })}
