@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import CharacterComics from "../components/CharacterComics";
+import topSecret from "../assets/top_secret.png";
 
 const Character = () => {
   const { id } = useParams();
@@ -49,13 +50,21 @@ const Character = () => {
   ) : (
     <div className="characterPage container">
       <div className="characterPresentation">
-        <img
-          src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
-          alt="super-héros"
-        />
+        <div>
+          <img
+            src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
+            alt="super-héros"
+          />
+        </div>
+
         <div className="characterInfo">
           <h2>{data.name}</h2>
-          <p>{data.description}</p>
+
+          {data.description ? (
+            <p>{data.description}</p>
+          ) : (
+            <img src={topSecret} alt="top secret" className="topSecret" />
+          )}
         </div>
       </div>
       {data.comics.length ? (
@@ -75,7 +84,7 @@ const Character = () => {
               );
             })}
           </div>
-          <div className="comicsHiglight">
+          <div className="comicsHighlight">
             <div>
               {/*the  default informations are from the first comics books of the database*/}
               <h3>{title ? title : data.comics[0].title}</h3>
