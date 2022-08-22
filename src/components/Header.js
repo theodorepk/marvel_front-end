@@ -1,11 +1,13 @@
 import logo from "../assets/Marvel_Logo.svg";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = ({ search, setSearch, visible }) => {
   const navigate = useNavigate();
 
   return (
     <header>
+      <div className="hidden"></div>
       {/* <FontAwesomeIcon icon="bars" className="menu" /> */}
       {!visible && (
         <img
@@ -17,7 +19,7 @@ const Header = ({ search, setSearch, visible }) => {
           className="logo"
         />
       )}
-      <div className={visible ? "searchBar" : undefined}>
+      {/* <div className={visible ? "searchBar" : undefined}>
         {visible && (
           <input
             type="text"
@@ -28,9 +30,11 @@ const Header = ({ search, setSearch, visible }) => {
             value={search}
           />
         )}
-      </div>
+      </div> */}
 
-      <button>Se Connecter</button>
+      <button>
+        <FontAwesomeIcon icon="fa-solid fa-arrow-right-to-bracket" size="2xl" />
+      </button>
     </header>
   );
 };

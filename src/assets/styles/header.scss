@@ -3,16 +3,21 @@ header {
   background-color: rgb(236, 29, 36);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 10px;
   height: 50px;
   position: sticky;
   top: 0px;
-  z-index: 1;
+  z-index: 1; //previously z-index: -1 was setup on characters (Home page), but the were unclickable
+}
+
+.hidden {
+  width: 55px; //to center the logo (55px for the log-in button width + margin; flex: 1 is apply to logo)
 }
 
 .logo {
   height: 45px;
+  flex: 1; //2 div with a 55px surroud the logo, flex:1 center the logo (it take all the empty space)
 }
 
 .menu {
@@ -27,4 +32,16 @@ header {
 .searchBar {
   border: 1px solid black;
   background-color: black;
+}
+
+button {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(236, 29, 36);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
 }
