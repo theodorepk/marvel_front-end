@@ -42,8 +42,8 @@ const Character = () => {
   }, [id]);
 
   return isLoading ? (
-    <div className="container">
-      <div className="lds-dual-ring"></div>{" "}
+    <div className="container loader">
+      <div className="lds-dual-ring"></div>
       {/*Loader from https://loading.io/css/*/}
     </div>
   ) : (

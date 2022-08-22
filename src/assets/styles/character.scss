@@ -12,6 +12,7 @@
 
 .characterPresentation {
   display: flex;
+  background-color: blue;
   h2 {
     font-size: 24px;
   }
@@ -27,12 +28,16 @@
   flex-direction: row;
   overflow: hidden;
   overflow-x: scroll;
+  .comicsCover {
+    width: 170px;
+    height: 260px;
+  }
 }
 
 .highlight {
-  img {
-    height: 250px;
-    width: 162px;
+  .comicsCover {
+    height: 286px;
+    width: 187px;
     transition-duration: 0.5s; //the size change smoothly
   }
 }

@@ -23,7 +23,7 @@ const Comics = ({ title }) => {
   }, [skip, title]);
 
   return isLoading ? (
-    <div className="container ">
+    <div className="container loader">
       <div className="lds-dual-ring"></div>{" "}
       {/*Loader from https://loading.io/css/*/}
     </div>

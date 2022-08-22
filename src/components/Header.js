@@ -23,6 +23,7 @@ const Header = ({ search, setSearch, visible, setVisible }) => {
         <img
           onClick={() => {
             navigate("/");
+            setSearch(``); //reset the search
           }}
           src={logo}
           alt="logo Marvel"

@@ -24,7 +24,7 @@ const Characters = ({ name }) => {
   }, [skip, name]);
 
   return isLoading ? (
-    <div className="container">
+    <div className="container loader">
       <div className="lds-dual-ring"></div>
       {/*Loader from https://loading.io/css/*/}
     </div>
