@@ -12,13 +12,38 @@
   font-size: 18px;
 }
 
-.comics,
 .character {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
   width: 175px;
   height: 175px;
+  position: relative;
+  z-index: -1;
+
+  h2 {
+    position: absolute;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    text-align: center;
+    color: white;
+  }
+  .characterPicture {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-self: center;
+    object-fit: cover;
+  }
+}
+
+.comics {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 170px;
+  height: 260px;
   // border: 3px solid black;
   position: relative;
   z-index: -1;
@@ -32,8 +57,7 @@
     color: white;
   }
 
-  .comicsCover,
-  .characterPicture {
+  .comicsCover {
     width: 100%;
     height: 100%;
     display: flex;
