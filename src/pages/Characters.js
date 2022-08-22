@@ -25,7 +25,8 @@ const Characters = ({ name }) => {
 
   return isLoading ? (
     <div className="container">
-      <span>Nous feuilletons les oeuvres</span>
+      <div className="lds-dual-ring"></div>
+      {/*Loader from https://loading.io/css/*/}
     </div>
   ) : (
     <div className="charactersPage">

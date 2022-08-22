@@ -12,4 +12,33 @@ body {
   height: calc(
     100vh - 100px
   ); //the content will take all the place and the "footer" will stick to the bottom on mobile (-100px (Header + Navigation height), some pages started under the header)
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//Lines 22 to 45 styling loading animation from https://loading.io/css/
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid black;
+  border-color: black transparent black transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
