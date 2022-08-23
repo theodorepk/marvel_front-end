@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import CharacterComics from "../components/CharacterComics";
-import topSecret from "../assets/classified.png";
 
 //
 const Character = () => {
@@ -94,9 +93,7 @@ const Character = () => {
             <img src="" alt="" />
           </div>
         </div>
-      ) : (
-        <span>Aucun comics n'a été trouvé concernant cet individu</span>
-      )}
+      ) : undefined}
     </div>
   );
 };
