@@ -14,12 +14,13 @@
 .characterPresentation {
   display: flex;
   flex-direction: column;
-  align-items: center;
   border-radius: 5px;
   background-color: #ec1d24;
   box-sizing: border-box;
   padding: 20px;
   margin-bottom: 30px;
+  align-items: center;
+
   h2 {
     font-size: 24px;
   }
@@ -33,14 +34,12 @@
   .characterInfo {
     text-align: justify;
 
-    div {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: center;
-      p {
-        margin-top: 20px;
-      }
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    p {
+      margin-top: 20px;
     }
   }
 }
@@ -62,7 +61,6 @@
   flex-direction: row;
   overflow: hidden;
   overflow-x: scroll;
-  // margin-bottom: 20px;
   padding-bottom: 20px;
   .comicsCover {
     width: 170px;
@@ -101,5 +99,33 @@
   }
   p {
     font-size: 18px;
+  }
+}
+
+@media (min-width: 550px) {
+  .characterPresentation {
+    flex-direction: column;
+    // display: block;
+    // height: 440px;
+    margin: 20px auto;
+
+    h2 {
+      font-size: 40px;
+    }
+    div {
+      display: flex;
+      .profilePicture {
+        width: 340px;
+      }
+    }
+  }
+
+  .characterInfo {
+    // background-color: green;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+    font-size: 20px;
   }
 }

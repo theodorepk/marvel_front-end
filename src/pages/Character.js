@@ -51,19 +51,17 @@ const Character = () => {
     <div className="characterPage container">
       <div className="characterPresentation">
         <h2>{data.name}</h2>
-
-        <img
-          className="profilePicture"
-          src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
-          alt="super-héros"
-        />
-
-        <div className="characterInfo">
-          <div>
-            {data.description && <p>{data.description}</p>}
-
-            {/* // <img src={topSecret} alt="top secret" /> */}
-          </div>
+        <div>
+          <img
+            className="profilePicture"
+            src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
+            alt="super-héros"
+          />
+          {data.description && (
+            <div className="characterInfo">
+              {data.description && <p>{data.description}</p>}
+            </div>
+          )}
         </div>
       </div>
       {data.comics.length ? (
