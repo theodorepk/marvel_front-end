@@ -21,3 +21,9 @@
 .navigation div {
   padding: 10px;
 }
+
+@media (min-width: 821px) {
+  .navigation {
+    display: none;
+  }
+}

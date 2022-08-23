@@ -7,8 +7,8 @@ const Header = ({ search, setSearch, visible, setVisible }) => {
 
   return (
     <header>
-      <div className="hidden">
-        {visible && (
+      <div className="menu">
+        {/* {visible && (
           <FontAwesomeIcon
             icon="fa-solid fa-angle-right"
             size="xl"
@@ -16,9 +16,42 @@ const Header = ({ search, setSearch, visible, setVisible }) => {
               setVisible(false);
             }}
           />
-        )}
+        )} */}
+        <FontAwesomeIcon icon="fa-solid fa-bars" size="xl" className="bars" />
       </div>
       {/* <FontAwesomeIcon icon="bars" className="menu" /> */}
+      {/* <div className="hidden"> */}
+      {/* {visible && (
+          <FontAwesomeIcon
+            icon="fa-solid fa-angle-right"
+            size="xl"
+            onClick={() => {
+              setVisible(false);
+            }}
+          />
+        )} */}
+      <div className={visible ? "sbContainer" : undefined}>
+        {visible && (
+          <FontAwesomeIcon
+            icon="fa-solid fa-angle-right"
+            size="xl"
+            onClick={() => {
+              setVisible(false);
+            }}
+            className="return"
+          />
+        )}
+        <input
+          className={visible ? "searchBar" : "searchBarHidden"}
+          type="search"
+          placeholder="Votre comics préféré"
+          onChange={(event) => {
+            setSearch(event.target.value);
+          }}
+          value={search}
+        />
+      </div>
+      {/* </div> */}
       {!visible && (
         <img
           onClick={() => {
@@ -42,7 +75,7 @@ const Header = ({ search, setSearch, visible, setVisible }) => {
           />
         )}
       </div> */}
-      <div className={visible ? "sbContainer" : undefined}>
+      {/* <div className={visible ? "sbContainer" : undefined}>
         <input
           className={visible ? "searchBar" : "searchBarHidden"}
           type="search"
@@ -52,7 +85,7 @@ const Header = ({ search, setSearch, visible, setVisible }) => {
           }}
           value={search}
         />
-      </div>
+      </div> */}
 
       <button>
         <FontAwesomeIcon icon="fa-solid fa-user" size="2xl" />{" "}

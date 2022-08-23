@@ -12,11 +12,11 @@ header {
 }
 
 .hidden {
-  width: 55px; //to center the logo (55px for the log-in button width + margin; flex: 1 is apply to logo)
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
+  // width: 55px; //to center the logo (55px for the log-in button width + margin; flex: 1 is apply to logo)
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // color: white;
 }
 
 .logo {
@@ -37,13 +37,28 @@ header {
   }
 }
 
-// .menu {
-//   color: white;
-//   margin: 10px;
-// }
+.menu {
+  width: 55px; //to center the logo (55px for the log-in button width + margin; flex: 1 is apply to logo)
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bars {
+  display: none;
+}
 
 .sbContainer {
   flex: 1; //needed to avoid the log logo to move when the searchBar appear/disappear
+  display: flex;
+  align-items: center;
+  input {
+    margin-left: 10px;
+  }
+  .return {
+    // padding-right: 10px;
+    color: white;
+  }
 }
 
 .searchBarHidden {
@@ -73,4 +88,25 @@ button {
   align-items: center;
   justify-content: center;
   margin-right: 5px;
+}
+
+@media (min-width: 821px) {
+  header {
+    justify-content: space-between;
+  }
+  .sbContainer {
+    flex: none; //needed to avoid the log logo to move when the searchBar appear/disappear
+  }
+
+  .menu {
+    width: 55px; //to center the logo (55px for the log-in button width + margin; flex: 1 is apply to logo)
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+  .bars {
+    display: flex;
+  }
 }
