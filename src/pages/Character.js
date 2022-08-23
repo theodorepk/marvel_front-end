@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import CharacterComics from "../components/CharacterComics";
-import topSecret from "../assets/top_secret.png";
+import topSecret from "../assets/classified.png";
 
+//
 const Character = () => {
   const { id } = useParams();
   const [data, setData] = useState();
@@ -50,25 +51,25 @@ const Character = () => {
   ) : (
     <div className="characterPage container">
       <div className="characterPresentation">
-        <div>
-          <img
-            src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
-            alt="super-héros"
-          />
-        </div>
+        <h2>{data.name}</h2>
+
+        <img
+          className="profilePicture"
+          src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
+          alt="super-héros"
+        />
 
         <div className="characterInfo">
-          <h2>{data.name}</h2>
+          <div>
+            {data.description && <p>{data.description}</p>}
 
-          {data.description ? (
-            <p>{data.description}</p>
-          ) : (
-            <img src={topSecret} alt="top secret" className="topSecret" />
-          )}
+            {/* // <img src={topSecret} alt="top secret" /> */}
+          </div>
         </div>
       </div>
       {data.comics.length ? (
-        <>
+        <div className="comicsPart">
+          <h2>Comics</h2>
           <div className="characterComics">
             {data.comics.map((element, index) => {
               return (
@@ -92,7 +93,7 @@ const Character = () => {
             </div>
             <img src="" alt="" />
           </div>
-        </>
+        </div>
       ) : (
         <span>Aucun comics n'a été trouvé concernant cet individu</span>
       )}

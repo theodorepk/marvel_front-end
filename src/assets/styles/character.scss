@@ -13,46 +13,62 @@
 
 .characterPresentation {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   border-radius: 5px;
   background-color: #ec1d24;
   box-sizing: border-box;
-
+  padding: 20px;
+  margin-bottom: 30px;
   h2 {
     font-size: 24px;
   }
-  div:first-child {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 200px;
-      height: 200px;
-      margin: 5px 5px;
-    }
+  .profilePicture {
+    width: 100%;
+    aspect-ratio: 1/1; //give the profile picture a 1:1 ratio
+    margin-top: 20px;
+    object-fit: cover;
   }
 
   .characterInfo {
     text-align: justify;
-    margin-right: 10px;
-  }
+    flex: 1;
 
-  .topSecret {
-    width: 200px;
-    height: 200px;
+    div {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      p {
+        margin-top: 20px;
+      }
+    }
   }
 }
 
 /* CharacterComics */
+.comicsPart {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    font-size: 24px;
+    align-self: center;
+    margin-bottom: 20px;
+  }
+}
 
 .characterComics {
   display: flex;
   flex-direction: row;
   overflow: hidden;
   overflow-x: scroll;
+  // margin-bottom: 20px;
+  padding-bottom: 20px;
   .comicsCover {
     width: 170px;
     height: 260px;
+    margin-right: 10px;
   }
 }
 
@@ -61,6 +77,22 @@
     height: 286px;
     width: 187px;
     transition-duration: 0.5s; //the size change smoothly
+    box-shadow: 10px 10px 10px grey;
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+  @keyframes floating {
+    0% {
+      transform: translate(0, 0px);
+    }
+    50% {
+      transform: translate(0, 3px);
+    }
+    100% {
+      transform: translate(0, -0px);
+    }
   }
 }
 
