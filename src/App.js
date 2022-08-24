@@ -14,9 +14,10 @@ import {
   faBook,
   faUser,
   faAngleRight,
+  faStar,
   // faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
-import { faStar } from "@fortawesome/free-regular-svg-icons";
+// import { farStar } from "@fortawesome/free-regular-svg-icons";
 import Navigation from "./components/Navigation";
 library.add(
   faBars,
@@ -36,16 +37,17 @@ function App() {
   const [favorites, setFavorites] = useState({ comics: [] });
 
   const addFavComics = (par) => {
+    //add or remove a comics from favorites state
     const newTab = { ...favorites };
     const index = newTab.comics.indexOf(par);
-
     if (index > -1) {
-      newTab.comics.splice(index, 1);
+      //comics exist in favorites
+      newTab.comics.splice(index, 1); //remove it
     } else {
-      newTab.comics.push(par);
+      //doesn't exist
+      newTab.comics.push(par); //add ot
     }
-    setFavorites(newTab);
-    console.log(`favorites: ${favorites}`);
+    setFavorites(newTab); //update state
   };
 
   return (

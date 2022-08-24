@@ -37,14 +37,19 @@ const Comics = ({ title, favorites, setFavorites, addFavComics }) => {
               key={index}
               className="comics"
               onClick={() => {
+                //anonymous function, addFavComics need parameters and will called if anonymous function not here (it will crash)
                 addFavComics(element._id);
               }}
             >
               <div>
                 <FontAwesomeIcon
-                  icon="fa-regular fa-star"
-                  className="star"
-                  size="lg"
+                  icon="fa-solid fa-star"
+                  className={
+                    favorites.comics.indexOf(element._id) > -1
+                      ? "star favorites"
+                      : "star"
+                  }
+                  size="xl"
                 />
               </div>
 

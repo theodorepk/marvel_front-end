@@ -47,7 +47,13 @@
 
   .star {
     position: absolute;
-    // top: 0px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 5px;
+  }
+
+  .favorites {
+    color: gold;
+    // background-color: gold;
   }
 
   h2 {
