@@ -1,15 +1,17 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import CharacterComics from "../components/CharacterComics";
 
 //
-const Character = () => {
+const Character = ({ favorites, addFavComics }) => {
   const { id } = useParams();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [title, setTitle] = useState(``); //Dynamic title when user choose a comics
   const [description, setDescription] = useState(``); //Dynamic description when user choose a comics
+  const [comicsId, setComicsId] = useState(``);
 
   const [highLight, setHighLight] = useState(); //Use to define what comics is highlighted
 
@@ -78,6 +80,7 @@ const Character = () => {
                   setDescription={setDescription} // onClick cannot be setup here
                   setHighLight={setHighLight} //hightLight will change with onClick event
                   highLight={highLight}
+                  setComicsId={setComicsId}
                 />
               );
             })}
@@ -85,8 +88,24 @@ const Character = () => {
           <div className="comicsHighlight">
             <div>
               {/*the  default informations are from the first comics books of the database*/}
-              <h3>{title ? title : data.comics[0].title}</h3>
-              <p>{description ? description : data.comics[0].description}</p>
+              <div className="title">
+                <h3>{title || data.comics[0].title}</h3>
+                <FontAwesomeIcon
+                  icon="fa-solid fa-star"
+                  className={
+                    favorites.comics.indexOf(comicsId || data.comics[0]._id) >
+                    -1
+                      ? "star favorites"
+                      : "star"
+                  }
+                  size="xl"
+                  onClick={() => {
+                    //anonymous function, addFavComics need parameters and will called if anonymous function not here (it will crash)
+                    addFavComics(comicsId || data.comics[0]._id);
+                  }}
+                />
+              </div>
+              <p>{description || data.comics[0].description}</p>
             </div>
             <img src="" alt="" />
           </div>

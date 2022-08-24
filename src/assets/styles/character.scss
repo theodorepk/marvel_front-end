@@ -62,6 +62,7 @@
   overflow: hidden;
   overflow-x: scroll;
   padding-bottom: 20px;
+
   .comicsCover {
     width: 170px;
     height: 260px;
@@ -94,9 +95,22 @@
 }
 
 .comicsHighlight {
+  .title {
+    display: flex;
+    align-items: center;
+  }
   h3 {
     font-size: 24px;
   }
+  .star {
+    color: rgba(0, 0, 0, 1);
+    margin: 5px;
+  }
+
+  .favorites {
+    color: gold;
+  }
+
   p {
     font-size: 18px;
   }

@@ -72,7 +72,12 @@ function App() {
               />
             }
           />
-          <Route path="/character/:id" element={<Character />} />
+          <Route
+            path="/character/:id"
+            element={
+              <Character favorites={favorites} addFavComics={addFavComics} />
+            }
+          />
         </Routes>
         <Navigation setVisible={setVisible} />
       </Router>

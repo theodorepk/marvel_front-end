@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Comics = ({ title, favorites, setFavorites, addFavComics }) => {
+const Comics = ({ title, favorites, addFavComics }) => {
   const [page, setPage] = useState(1);
   const [data, setData] = useState();
   const [skip, setSkip] = useState(0);
