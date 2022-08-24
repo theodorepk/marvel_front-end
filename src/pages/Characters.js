@@ -34,7 +34,7 @@ const Characters = ({ name, favorites, addFavComics }) => {
       <div className="allCharacters">
         {data.results.map((element, index) => {
           return (
-            <div key={index}>
+            <div key={index} className="avatar">
               <FontAwesomeIcon
                 icon="fa-solid fa-star"
                 className={
