@@ -60,7 +60,16 @@ function App() {
           setVisible={setVisible}
         />
         <Routes>
-          <Route path="/" element={<Characters name={search} />} />
+          <Route
+            path="/"
+            element={
+              <Characters
+                name={search}
+                favorites={favorites}
+                addFavComics={addFavComics}
+              />
+            }
+          />
           <Route
             path="/comics"
             element={

@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const Characters = ({ name }) => {
+const Characters = ({ name, favorites, addFavComics }) => {
   const [page, setPage] = useState(1);
   const [data, setData] = useState();
   const [skip, setSkip] = useState(0);
@@ -33,18 +34,32 @@ const Characters = ({ name }) => {
       <div className="allCharacters">
         {data.results.map((element, index) => {
           return (
-            <Link
-              key={index}
-              className="character"
-              to={`/character/${element._id}`} //go to character by id
-            >
-              <img
-                className="characterPicture"
-                src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
-                alt="couverture du comics"
+            <div>
+              <FontAwesomeIcon
+                icon="fa-solid fa-star"
+                className={
+                  favorites.characters.indexOf(element._id) > -1
+                    ? "star favorites"
+                    : "star"
+                }
+                size="2xl"
+                onClick={() => {
+                  addFavComics(element._id, "characters");
+                }}
               />
-              <h2 className="characterName">{element.name}</h2>
-            </Link>
+              <Link
+                key={index}
+                className="character"
+                to={`/character/${element._id}`} //go to character by id
+              >
+                <img
+                  className="characterPicture"
+                  src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
+                  alt="couverture du comics"
+                />
+                <h2 className="characterName">{element.name}</h2>
+              </Link>
+            </div>
           );
         })}
 
