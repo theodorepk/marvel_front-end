@@ -1,5 +1,6 @@
 import "./App.scss";
 
+import Cookies from "js-cookie";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
@@ -33,8 +34,18 @@ library.add(
 function App() {
   const [search, setSearch] = useState(``);
   const [visible, setVisible] = useState(false); //false --> the search bar isn't visible
-  // const [characterId, setCharacterId] = useState(``);
-  const [favorites, setFavorites] = useState({ comics: [], characters: [] });
+
+  const CookieImport = () => {
+    if (Cookies.get("favorites")) {
+      //if the favorites cookie exist
+      return JSON.parse(Cookies.get("favorites")); //return the conversion string -> object
+    } else {
+      //else
+      return { comics: [], characters: [] }; //return an object with two array
+    }
+  };
+
+  const [favorites, setFavorites] = useState(CookieImport());
 
   const addFavComics = (data, cat) => {
     //add or remove a comics from favorites state
@@ -48,6 +59,10 @@ function App() {
       newTab[cat].push(data); //add ot
     }
     setFavorites(newTab); //update state
+    Cookies.set("favorites", JSON.stringify(favorites), {
+      //Cookie can't be store as object, we need to convert it in string
+      expires: 2100,
+    });
   };
 
   return (

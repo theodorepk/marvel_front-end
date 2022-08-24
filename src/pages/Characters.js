@@ -34,7 +34,7 @@ const Characters = ({ name, favorites, addFavComics }) => {
       <div className="allCharacters">
         {data.results.map((element, index) => {
           return (
-            <div>
+            <div key={index}>
               <FontAwesomeIcon
                 icon="fa-solid fa-star"
                 className={
@@ -48,7 +48,6 @@ const Characters = ({ name, favorites, addFavComics }) => {
                 }}
               />
               <Link
-                key={index}
                 className="character"
                 to={`/character/${element._id}`} //go to character by id
               >
