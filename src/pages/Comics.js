@@ -1,7 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Comics = ({ title }) => {
+const Comics = ({ title, favorites, setFavorites, addFavComics }) => {
   const [page, setPage] = useState(1);
   const [data, setData] = useState();
   const [skip, setSkip] = useState(0);
@@ -32,7 +33,21 @@ const Comics = ({ title }) => {
       <div className="allComics">
         {data.results.map((element, index) => {
           return (
-            <div key={index} className="comics">
+            <div
+              key={index}
+              className="comics"
+              onClick={() => {
+                addFavComics(element._id);
+              }}
+            >
+              <div>
+                <FontAwesomeIcon
+                  icon="fa-regular fa-star"
+                  className="star"
+                  size="lg"
+                />
+              </div>
+
               <img
                 className="comicsCover"
                 src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
