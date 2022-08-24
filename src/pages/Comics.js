@@ -38,7 +38,7 @@ const Comics = ({ title, favorites, addFavComics }) => {
               className="comics"
               onClick={() => {
                 //anonymous function, addFavComics need parameters and will called if anonymous function not here (it will crash)
-                addFavComics(element._id);
+                addFavComics(element._id, "comics");
               }}
             >
               <div>
@@ -49,7 +49,7 @@ const Comics = ({ title, favorites, addFavComics }) => {
                       ? "star favorites"
                       : "star"
                   }
-                  size="xl"
+                  size="2xl"
                 />
               </div>
 

@@ -34,18 +34,18 @@ function App() {
   const [search, setSearch] = useState(``);
   const [visible, setVisible] = useState(false); //false --> the search bar isn't visible
   // const [characterId, setCharacterId] = useState(``);
-  const [favorites, setFavorites] = useState({ comics: [] });
+  const [favorites, setFavorites] = useState({ comics: [], characters: [] });
 
-  const addFavComics = (par) => {
+  const addFavComics = (data, cat) => {
     //add or remove a comics from favorites state
     const newTab = { ...favorites };
-    const index = newTab.comics.indexOf(par);
+    const index = newTab[cat].indexOf(data);
     if (index > -1) {
       //comics exist in favorites
-      newTab.comics.splice(index, 1); //remove it
+      newTab[cat].splice(index, 1); //remove it
     } else {
       //doesn't exist
-      newTab.comics.push(par); //add ot
+      newTab[cat].push(data); //add ot
     }
     setFavorites(newTab); //update state
   };

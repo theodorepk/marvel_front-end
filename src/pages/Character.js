@@ -59,6 +59,20 @@ const Character = ({ favorites, addFavComics }) => {
             src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
             alt="super-héros"
           />
+          <FontAwesomeIcon
+            icon="fa-solid fa-star"
+            className={
+              favorites.characters.indexOf(data._id) > -1
+                ? "starCharacter favorites"
+                : "starCharacter"
+            }
+            size="2x"
+            onClick={() => {
+              //anonymous function, addFavComics need parameters and will called if anonymous function not here (it will crash)
+              addFavComics(data._id, "characters");
+            }}
+          />
+
           {data.description && (
             <div className="characterInfo">
               {data.description && <p>{data.description}</p>}
@@ -101,7 +115,7 @@ const Character = ({ favorites, addFavComics }) => {
                   size="xl"
                   onClick={() => {
                     //anonymous function, addFavComics need parameters and will called if anonymous function not here (it will crash)
-                    addFavComics(comicsId || data.comics[0]._id);
+                    addFavComics(comicsId || data.comics[0]._id, "comics");
                   }}
                 />
               </div>

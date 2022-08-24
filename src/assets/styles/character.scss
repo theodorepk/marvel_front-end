@@ -24,11 +24,25 @@
   h2 {
     font-size: 24px;
   }
-  .profilePicture {
-    width: 100%;
-    aspect-ratio: 1/1; //give the profile picture a 1:1 ratio
-    margin-top: 20px;
-    object-fit: cover;
+
+  div {
+    position: relative;
+
+    .profilePicture {
+      width: 100%;
+      aspect-ratio: 1/1; //give the profile picture a 1:1 ratio
+      margin-top: 20px;
+      object-fit: cover;
+    }
+    .starCharacter {
+      position: absolute;
+      right: 15px;
+      top: 30px;
+      color: rgba(0, 0, 0, 0.8);
+    }
+    .favorites {
+      color: gold;
+    }
   }
 
   .characterInfo {
@@ -103,7 +117,7 @@
     font-size: 24px;
   }
   .star {
-    color: rgba(0, 0, 0, 1);
+    color: rgba(0, 0, 0, 0.7);
     margin: 5px;
   }
 
