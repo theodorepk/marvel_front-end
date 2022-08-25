@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const Characters = ({ name, favorites, addFavComics }) => {
+const Characters = ({ name, favorites, addFavComics, isFavorites }) => {
   const [page, setPage] = useState(1);
   const [data, setData] = useState();
   const [skip, setSkip] = useState(0);
@@ -38,13 +38,13 @@ const Characters = ({ name, favorites, addFavComics }) => {
               <FontAwesomeIcon
                 icon="fa-solid fa-star"
                 className={
-                  favorites.characters.indexOf(element._id) > -1
-                    ? "star favorites"
-                    : "star"
+                  // favorites.characters.indexOf(element._id) > -1
+                  // false
+                  isFavorites("characters", element) ? "star favorites" : "star"
                 }
                 size="2xl"
                 onClick={() => {
-                  addFavComics(element._id, "characters");
+                  addFavComics(element, "characters");
                 }}
               />
               <Link

@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 // import { farStar } from "@fortawesome/free-regular-svg-icons";
 import Navigation from "./components/Navigation";
+import Favorites from "./pages/Favorites";
 library.add(
   faBars,
   faMagnifyingGlass,
@@ -51,19 +52,35 @@ function App() {
   const addFavComics = (data, cat) => {
     //add or remove a comics from favorites state
     const newTab = { ...favorites };
-    const index = newTab[cat].indexOf(data);
-    if (index > -1) {
-      //comics exist in favorites
-      newTab[cat].splice(index, 1); //remove it
-    } else {
+    const index = newTab[cat].indexOf(data._id);
+    let isPresent = false;
+
+    for (let i = 0; i < favorites[cat].length; i++) {
+      if (favorites[cat][i]._id.indexOf(data._id) > -1) {
+        //comics exist in favorites
+        newTab[cat].splice(index, 1);
+        isPresent = true;
+      }
+    }
+    if (!isPresent) {
       //doesn't exist
-      newTab[cat].push(data); //add ot
+      newTab[cat].push(data); //add it
     }
     setFavorites(newTab); //update state
     Cookies.set("favorites", JSON.stringify(favorites), {
       //Cookie can't be store as object, we need to convert it in string
       expires: 2100,
     });
+  };
+
+  const isFavorites = (cat, search) => {
+    let isPresent = false;
+    for (let i = 0; i < favorites[cat].length; i++) {
+      if (favorites[cat][i]._id.indexOf(search._id) > -1) {
+        isPresent = true;
+      }
+    }
+    return isPresent;
   };
 
   return (
@@ -88,6 +105,7 @@ function App() {
                 name={search}
                 favorites={favorites}
                 addFavComics={addFavComics}
+                isFavorites={isFavorites}
               />
             }
           />
@@ -99,6 +117,7 @@ function App() {
                 favorites={favorites}
                 setFavorites={setFavorites}
                 addFavComics={addFavComics}
+                isFavorites={isFavorites}
               />
             }
           />
@@ -107,6 +126,10 @@ function App() {
             element={
               <Character favorites={favorites} addFavComics={addFavComics} />
             }
+          />
+          <Route
+            path="/favorites"
+            element={<Favorites favorites={favorites} />}
           />
         </Routes>
         <Navigation

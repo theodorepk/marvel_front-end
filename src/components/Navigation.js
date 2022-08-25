@@ -22,11 +22,16 @@ const Navigation = ({ setVisible, menuIsVisible }) => {
         />
         <span>Search</span>
       </div>
-
       <Link to={"/comics"} className="link">
         <div>
           <FontAwesomeIcon icon="book" size="xl" />
           <span>Comics</span>
+        </div>
+      </Link>
+      <Link to={"/favorites"} className="link">
+        <div>
+          <FontAwesomeIcon icon="fa-solid fa-star" size="xl" />
+          <span>Favoris</span>
         </div>
       </Link>
     </nav>
