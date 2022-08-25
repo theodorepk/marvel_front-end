@@ -34,6 +34,7 @@ library.add(
 function App() {
   const [search, setSearch] = useState(``);
   const [visible, setVisible] = useState(false); //false --> the search bar isn't visible
+  const [menuIsVisible, setMenuIsVisible] = useState(true);
 
   const CookieImport = () => {
     if (Cookies.get("favorites")) {
@@ -73,6 +74,7 @@ function App() {
           title={search}
           visible={visible}
           setVisible={setVisible}
+          setMenuIsVisible={setMenuIsVisible}
         />
         <Routes>
           <Route
@@ -103,7 +105,11 @@ function App() {
             }
           />
         </Routes>
-        <Navigation setVisible={setVisible} />
+        <Navigation
+          setVisible={setVisible}
+          setMenuIsVisible={setMenuIsVisible}
+          menuIsVisible={menuIsVisible}
+        />
       </Router>
     </>
   );

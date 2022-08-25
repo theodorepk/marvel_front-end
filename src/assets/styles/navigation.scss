@@ -11,6 +11,9 @@ nav {
   z-index: 2;
   div {
     padding: 10px;
+    span {
+      display: none;
+    }
   }
 }
 
@@ -22,11 +25,29 @@ nav {
   color: black;
 }
 
-@media (min-width: 666px) {
+@media (min-width: 769px) {
   nav {
     flex-direction: column;
     width: 300px;
     height: auto;
     align-items: flex-start;
+    align-self: flex-end;
+    // position: absolute;
+    position: fixed;
+    top: 50px;
+    height: 300px;
+
+    div {
+      display: flex;
+      align-items: center;
+      span {
+        margin-left: 20px;
+        display: flex;
+      }
+    }
+  }
+
+  .menuVisible {
+    display: none;
   }
 }
