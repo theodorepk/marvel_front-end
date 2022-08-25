@@ -18,7 +18,8 @@ const Header = ({
           icon="fa-solid fa-bars"
           size="xl"
           className="bars"
-          onClick={() => {
+          onClick={(event) => {
+            event.stopPropagation(); //click everywere else on the page close the menu. Here we stop the propagation to setup an open/close menu button
             setMenuIsVisible((prevState) => !prevState);
           }}
         />

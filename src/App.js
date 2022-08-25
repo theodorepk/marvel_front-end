@@ -67,7 +67,11 @@ function App() {
   };
 
   return (
-    <>
+    <div
+      onClick={() => {
+        setMenuIsVisible(true);
+      }}
+    >
       <Router>
         <Header
           setSearch={setSearch}
@@ -111,7 +115,7 @@ function App() {
           menuIsVisible={menuIsVisible}
         />
       </Router>
-    </>
+    </div>
   );
 }
 
