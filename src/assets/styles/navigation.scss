@@ -1,5 +1,5 @@
 /* Navigation */
-.navigation {
+nav {
   background-color: #ec1d24;
   position: sticky;
   bottom: -1px;
@@ -9,6 +9,9 @@
   justify-content: space-around;
   align-items: center;
   z-index: 2;
+  div {
+    padding: 10px;
+  }
 }
 
 .link {
@@ -19,12 +22,11 @@
   color: black;
 }
 
-.navigation div {
-  padding: 10px;
-}
-
 @media (min-width: 666px) {
-  .navigation {
-    display: none;
+  nav {
+    flex-direction: column;
+    width: 300px;
+    height: auto;
+    align-items: flex-start;
   }
 }

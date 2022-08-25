@@ -5,7 +5,7 @@ const Navigation = ({ setVisible }) => {
   //   const navigate = useNavigate;
 
   return (
-    <nav className="navigation">
+    <nav>
       <Link to={"/"} className="link">
         <div>
           {/* div are here to increase the click zone without enlarge the icons */}
