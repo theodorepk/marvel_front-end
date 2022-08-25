@@ -41,24 +41,27 @@ const Comics = ({ title, favorites, addFavComics }) => {
                 addFavComics(element._id, "comics");
               }}
             >
-              <div>
-                <FontAwesomeIcon
-                  icon="fa-solid fa-star"
-                  className={
-                    favorites.comics.indexOf(element._id) > -1
-                      ? "star favorites"
-                      : "star"
-                  }
-                  size="2xl"
-                />
-              </div>
-
-              <img
-                className="comicsCover"
-                src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
-                alt="couverture du comics"
+              <FontAwesomeIcon
+                icon="fa-solid fa-star"
+                className={
+                  favorites.comics.indexOf(element._id) > -1
+                    ? "star favorites"
+                    : "star"
+                }
+                size="2xl"
               />
-              <h2 className="comicsTitle">{element.title}</h2>
+
+              <div>
+                <div>
+                  <p>{element.description}</p>
+                </div>
+                <img
+                  className="comicsCover"
+                  src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
+                  alt="couverture du comics"
+                />
+                <h2 className="comicsTitle">{element.title}</h2>
+              </div>
             </div>
           );
         })}

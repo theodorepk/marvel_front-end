@@ -5,7 +5,8 @@
   flex-wrap: wrap;
   justify-content: space-around;
 
-  .avatar {
+  .avatar,
+  .comics {
     box-sizing: border-box;
     padding: 0 10px 10px 0;
 
@@ -15,7 +16,9 @@
       padding-left: 10px;
     }
     &:nth-child(even) {
-      width: calc((100% / 2) - 10px);
+      width: calc(
+        (100% / 2) - 10px
+      ); //-10px compensate the padding of the last child of the line
     }
 
     .character {
@@ -63,12 +66,16 @@
 }
 
 .comics {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-  width: 170px;
-  height: 260px;
-  position: relative;
+  div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    aspect-ratio: 170/260;
+    position: relative;
+    div {
+      display: none;
+    }
+  }
 
   h2 {
     position: absolute;
@@ -82,8 +89,7 @@
   .comicsCover {
     width: 100%;
     height: 100%;
-    display: flex;
-    align-self: center;
+
     object-fit: cover;
   }
 }
@@ -105,17 +111,23 @@
 }
 
 @media (min-width: 925px) {
-  .allCharacters {
-    .avatar {
+  .allCharacters,
+  .allComics {
+    .avatar,
+    .comics {
       &:nth-child(n) {
         //4 avatar per pages
-        width: calc((100% / 4));
+        width: calc(
+          (100% / 4) - 10px
+        ); //-10px compensate the padding of the last child of the line
         padding: 0 0 10px 10px;
       }
-      &:nth-child(3n) {
+      &:nth-child(4n) {
+        width: calc((100% / 4));
         padding-right: 10px;
       }
-      .character:hover {
+      .character:hover,
+      div:hover {
         justify-content: center;
         color: white;
 
@@ -124,7 +136,7 @@
           position: absolute;
           align-items: center;
           justify-content: center;
-          background-color: rgba(0, 0, 0, 0.8);
+          background-color: rgba(0, 0, 0, 0.5);
           width: 100%;
           height: 100%;
           p {
@@ -138,17 +150,23 @@
 }
 
 @media (min-width: 1200px) {
-  .charactersPage {
+  .charactersPage,
+  .comicsPage {
     max-width: 1920px;
     margin: auto;
-    .allCharacters {
-      .avatar {
+    .allCharacters,
+    .allComics {
+      .avatar,
+      .comics {
         &:nth-child(n) {
           //5 avatar per pages
-          width: calc((100% / 5));
-          padding: 0 0 10px 10px;
+          width: calc(
+            (100% / 5) - 10px
+          ); //-10px compensate the padding of the last child of the line
+          padding: 0 0 10px 10px; //reset for all childs the basic padding
         }
-        &:nth-child(3n) {
+        &:nth-child(5n) {
+          width: calc((100% / 5));
           padding-right: 10px;
         }
         p {
@@ -160,11 +178,14 @@
 }
 
 @media (min-width: 1700px) {
-  .charactersPage {
-    .allCharacters {
-      .avatar {
+  .charactersPage,
+  .comicsPage {
+    .allCharacters,
+    .allComics {
+      .avatar,
+      .comics {
         p {
-          font-size: 26px;
+          font-size: 24px;
         }
       }
     }
