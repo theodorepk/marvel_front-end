@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navigation = ({ setVisible, menuIsVisible }) => {
   return (
-    <nav className={!menuIsVisible && "menuInvisible"}>
+    <nav className={!menuIsVisible ? "menuInvisible" : undefined}>
       <Link to={"/"} className="link">
         <div>
           {/* div are here to increase the click zone without enlarge the icons */}
