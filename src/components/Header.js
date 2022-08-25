@@ -59,8 +59,15 @@ const Header = ({
         />
       )}
 
-      <button>
-        <FontAwesomeIcon icon="fa-solid fa-user" size="2xl" />{" "}
+      <button onClick={() => setVisible((prevState) => !prevState)}>
+        {/* <FontAwesomeIcon icon="fa-solid fa-user" size="2xl" /> */}
+
+        <FontAwesomeIcon
+          icon="magnifying-glass"
+          className="loupeHeader"
+          //clicking on the magnifying-glass set visible or not the search bar
+          size="xl"
+        />
       </button>
     </header>
   );

@@ -34,6 +34,9 @@
         text-align: center;
         color: white;
       }
+      div {
+        display: none;
+      }
       .characterPicture {
         width: 100%;
         height: 100%;
@@ -105,12 +108,30 @@
   .allCharacters {
     .avatar {
       &:nth-child(n) {
-        //3 avatar per pages
-        width: calc((100% / 3));
+        //4 avatar per pages
+        width: calc((100% / 4));
         padding: 0 0 10px 10px;
       }
       &:nth-child(3n) {
         padding-right: 10px;
+      }
+      .character:hover {
+        justify-content: center;
+        color: white;
+
+        div {
+          display: flex;
+          position: absolute;
+          align-items: center;
+          justify-content: center;
+          background-color: rgba(0, 0, 0, 0.8);
+          width: 100%;
+          height: 100%;
+          p {
+            margin: 20px;
+            text-align: justify;
+          }
+        }
       }
     }
   }
@@ -124,13 +145,28 @@
       .avatar {
         &:nth-child(n) {
           //5 avatar per pages
-          width: calc((100% / 8));
+          width: calc((100% / 5));
           padding: 0 0 10px 10px;
         }
         &:nth-child(3n) {
           padding-right: 10px;
         }
+        p {
+          font-size: 16px;
+        }
       }
     }
   }
 }
+
+@media (min-width: 1700px) {
+  .charactersPage {
+    .allCharacters {
+      .avatar {
+        p {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+} ;

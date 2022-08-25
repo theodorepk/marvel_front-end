@@ -90,6 +90,10 @@ button {
   margin-right: 5px;
 }
 
+.loupeHeader {
+  display: none;
+}
+
 @media (min-width: 769px) {
   header {
     justify-content: space-between;
@@ -107,6 +111,10 @@ button {
   }
 
   .bars {
+    display: flex;
+  }
+
+  .loupeHeader {
     display: flex;
   }
 }

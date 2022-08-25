@@ -51,6 +51,9 @@ const Characters = ({ name, favorites, addFavComics }) => {
                 className="character"
                 to={`/character/${element._id}`} //go to character by id
               >
+                <div>
+                  <p>{element.description}</p>
+                </div>
                 <img
                   className="characterPicture"
                   src={`${element.thumbnail.path}.${element.thumbnail.extension}`}

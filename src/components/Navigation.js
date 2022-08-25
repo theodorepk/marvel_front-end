@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navigation = ({ setVisible, menuIsVisible }) => {
   return (
-    <nav className={menuIsVisible && "menuVisible"}>
+    <nav className={!menuIsVisible && "menuInvisible"}>
       <Link to={"/"} className="link">
         <div>
           {/* div are here to increase the click zone without enlarge the icons */}
@@ -11,10 +11,12 @@ const Navigation = ({ setVisible, menuIsVisible }) => {
           <span>Personnages</span>
         </div>
       </Link>
-      <div onClick={() => setVisible((prevState) => !prevState)}>
+      <div
+        onClick={() => setVisible((prevState) => !prevState)}
+        className="loupe"
+      >
         <FontAwesomeIcon
           icon="magnifying-glass"
-          className="loupe"
           //clicking on the magnifying-glass set visible or not the search bar
           size="xl"
         />
