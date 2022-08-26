@@ -5,7 +5,7 @@ import axios from "axios";
 import CharacterComics from "../components/CharacterComics";
 
 //
-const Character = ({ favorites, addFavComics }) => {
+const Character = ({ favorites, addFavComics, isFavorites }) => {
   const { id } = useParams();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -51,6 +51,7 @@ const Character = ({ favorites, addFavComics }) => {
     </div>
   ) : (
     <div className="characterPage container">
+      {console.log(data._id)}
       <div className="characterPresentation">
         <h2>{data.name}</h2>
         <div>
@@ -62,14 +63,15 @@ const Character = ({ favorites, addFavComics }) => {
           <FontAwesomeIcon
             icon="fa-solid fa-star"
             className={
-              favorites.characters.indexOf(data._id) > -1
-                ? "starCharacter favorites"
-                : "starCharacter"
+              isFavorites("characters", data) ? "star favorites" : "star"
+              // favorites.characters.indexOf(data._id) > -1
+              //   ? "starCharacter favorites"
+              //   : "starCharacter"
             }
             size="2x"
             onClick={() => {
               //anonymous function, addFavComics need parameters and will called if anonymous function not here (it will crash)
-              addFavComics(data._id, "characters");
+              addFavComics(data, "characters");
             }}
           />
 
@@ -107,10 +109,11 @@ const Character = ({ favorites, addFavComics }) => {
                 <FontAwesomeIcon
                   icon="fa-solid fa-star"
                   className={
-                    favorites.comics.indexOf(comicsId || data.comics[0]._id) >
-                    -1
-                      ? "star favorites"
-                      : "star"
+                    isFavorites("comics", data) ? "star favorites" : "star"
+                    // favorites.comics.indexOf(comicsId || data.comics[0]._id) >
+                    // -1
+                    //   ? "star favorites"
+                    //   : "star"
                   }
                   size="xl"
                   onClick={() => {

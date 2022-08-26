@@ -20,6 +20,7 @@ section {
 .favoritesComics {
   display: flex;
   flex-wrap: wrap;
+
   .characterFav {
     position: relative;
     box-sizing: border-box;
@@ -83,6 +84,66 @@ section {
       img {
         width: 100%;
         aspect-ratio: 170/260;
+      }
+    }
+  }
+}
+
+@media (min-width: 925px) {
+  .favoritesCharacter,
+  .favoritesComics {
+    .characterFav,
+    .comicsFav {
+      &:nth-child(n) {
+        //4 avatar per pages
+        width: calc(
+          (100% / 4) - 10px
+        ); //-10px compensate the padding of the last child of the line
+        padding: 0 0 10px 10px;
+      }
+      &:nth-child(4n) {
+        width: calc((100% / 4));
+        padding-right: 10px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .favoritesCharacter,
+  .favoritesComics {
+    max-width: 1920px;
+    margin: auto;
+    .characterFav,
+    .comicsFav {
+      &:nth-child(n) {
+        //5 avatar per pages
+        width: calc(
+          (100% / 5) - 10px
+        ); //-10px compensate the padding of the last child of the line
+        padding: 0 0 10px 10px; //reset for all childs the basic padding
+      }
+      &:nth-child(5n) {
+        width: calc((100% / 5));
+        padding-right: 10px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1700px) {
+  .favoritesCharacter,
+  .favoritesComics {
+    .characterFav,
+    .comicsFav {
+      p {
+        font-size: 24px;
       }
     }
   }

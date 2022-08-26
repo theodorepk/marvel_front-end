@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 const Favorites = ({ favorites }) => {
   const [visible, setHidden] = useState([true, true]);
@@ -25,7 +26,11 @@ const Favorites = ({ favorites }) => {
         <div className={`favoritesCharacter ${!visible[0] && `notVisible`}`}>
           {favorites.characters.map((element, index) => {
             return (
-              <div key={index} className="characterFav">
+              <Link
+                key={index}
+                className="characterFav"
+                to={`/character/${element._id}`}
+              >
                 <div>
                   <img
                     src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
@@ -33,7 +38,7 @@ const Favorites = ({ favorites }) => {
                   />
                   <h2>{element.name}</h2>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

@@ -77,11 +77,14 @@ function App() {
 
   const isFavorites = (cat, search) => {
     let isPresent = false;
-    for (let i = 0; i < favorites[cat].length; i++) {
-      if (favorites[cat][i]._id.indexOf(search._id) > -1) {
-        isPresent = true;
+    if (favorites[cat].length > 0) {
+      for (let i = 0; i < favorites[cat].length; i++) {
+        if (favorites[cat][i]._id.indexOf(search._id) > -1) {
+          isPresent = true;
+        }
       }
     }
+
     return isPresent;
   };
 
@@ -126,7 +129,11 @@ function App() {
           <Route
             path="/character/:id"
             element={
-              <Character favorites={favorites} addFavComics={addFavComics} />
+              <Character
+                favorites={favorites}
+                addFavComics={addFavComics}
+                isFavorites={isFavorites}
+              />
             }
           />
           <Route
