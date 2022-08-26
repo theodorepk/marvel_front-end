@@ -1,0 +1,89 @@
+section {
+  .title {
+    display: flex;
+    align-items: center;
+    h1 {
+      margin: 10px 0;
+      font-size: 20px;
+    }
+
+    .angleDown {
+      margin-left: 10px;
+    }
+  }
+  .notVisible {
+    display: none;
+  }
+}
+
+.favoritesCharacter,
+.favoritesComics {
+  display: flex;
+  flex-wrap: wrap;
+  .characterFav {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 10px 10px 0;
+
+    &:nth-child(odd) {
+      //avatar's don't have strict width and space between is likely the same
+      width: calc((100% / 2));
+      padding-left: 10px;
+    }
+    &:nth-child(even) {
+      width: calc(
+        (100% / 2) - 10px
+      ); //-10px compensate the padding of the last child of the line
+    }
+    div {
+      position: relative;
+
+      h2 {
+        position: absolute;
+        background-color: green;
+        bottom: 0px;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        text-align: center;
+        color: white;
+      }
+      img {
+        width: 100%;
+        aspect-ratio: 1/1;
+      }
+    }
+  }
+  .comicsFav {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 10px 10px 0;
+
+    &:nth-child(odd) {
+      //avatar's don't have strict width and space between is likely the same
+      width: calc((100% / 2));
+      padding-left: 10px;
+    }
+    &:nth-child(even) {
+      width: calc(
+        (100% / 2) - 10px
+      ); //-10px compensate the padding of the last child of the line
+    }
+    div {
+      position: relative;
+
+      h2 {
+        position: absolute;
+        background-color: green;
+        bottom: 0px;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        text-align: center;
+        color: white;
+      }
+      img {
+        width: 100%;
+        aspect-ratio: 170/260;
+      }
+    }
+  }
+}

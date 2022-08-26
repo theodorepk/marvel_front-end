@@ -1,30 +1,75 @@
-// import { useState } from "react";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Favorites = ({ favorites }) => {
-  //   console.log(favorites);
+  const [visible, setHidden] = useState([true, true]);
+  console.log(visible[1]);
 
   return (
     <div className="container">
-      <div>
-        <h2>Personnages</h2>
-        <div>
+      <section>
+        <div
+          className="title"
+          onClick={() => {
+            const newTab = [...visible];
+            newTab[0] = !newTab[0];
+            setHidden(newTab);
+          }}
+        >
+          <h1>Personnages</h1>
+          <FontAwesomeIcon
+            icon="fa-solid fa-angle-down"
+            className="angleDown"
+          />
+        </div>
+        <div className={`favoritesCharacter ${!visible[0] && `notVisible`}`}>
           {favorites.characters.map((element, index) => {
             return (
-              <div key={index}>
-                {console.log(element.name)}
-                <h3>{element.name}</h3>
-                <img
-                  src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
-                  alt=""
-                />
+              <div key={index} className="characterFav">
+                <div>
+                  <img
+                    src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
+                    alt=""
+                  />
+                  <h2>{element.name}</h2>
+                </div>
               </div>
             );
           })}
         </div>
-      </div>
-      <div>
-        <h2> Comics</h2>
-      </div>
+      </section>
+      <section>
+        <div
+          className="title"
+          onClick={() => {
+            const newTab = [...visible];
+            newTab[1] = !newTab[1];
+            setHidden(newTab);
+          }}
+        >
+          <h1>Comics</h1>
+          <FontAwesomeIcon
+            icon="fa-solid fa-angle-down"
+            className="angleDown"
+          />
+        </div>
+
+        <div className={`favoritesComics ${!visible[1] && `notVisible`}`}>
+          {favorites.comics.map((element, index) => {
+            return (
+              <div key={index} className="comicsFav">
+                <div>
+                  <img
+                    src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
+                    alt=""
+                  />
+                  <h2>{element.title}</h2>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 };
