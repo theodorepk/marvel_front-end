@@ -97,11 +97,10 @@
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
-}
-
-.buttons {
+  align-items: center;
   button {
     width: 80px;
+    border-radius: 5px;
   }
 }
 
