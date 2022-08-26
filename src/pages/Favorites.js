@@ -32,9 +32,12 @@ const Favorites = ({ favorites }) => {
                 to={`/character/${element._id}`}
               >
                 <div>
+                  <div>
+                    <p>{element.description}</p>
+                  </div>
                   <img
                     src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
-                    alt=""
+                    alt="avatar du personnage"
                   />
                   <h2>{element.name}</h2>
                 </div>
@@ -64,9 +67,12 @@ const Favorites = ({ favorites }) => {
             return (
               <div key={index} className="comicsFav">
                 <div>
+                  <div>
+                    <p>{element.description}</p>
+                  </div>
                   <img
                     src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
-                    alt=""
+                    alt="pochette du comics"
                   />
                   <h2>{element.title}</h2>
                 </div>

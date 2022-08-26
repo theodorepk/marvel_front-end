@@ -52,6 +52,9 @@ section {
         width: 100%;
         aspect-ratio: 1/1;
       }
+      div {
+        display: none;
+      }
     }
   }
   .comicsFav {
@@ -85,6 +88,9 @@ section {
         width: 100%;
         aspect-ratio: 170/260;
       }
+      div {
+        display: none;
+      }
     }
   }
 }
@@ -107,6 +113,25 @@ section {
       }
       p {
         font-size: 16px;
+      }
+
+      div:hover {
+        justify-content: center;
+        color: white;
+
+        div {
+          display: flex;
+          position: absolute;
+          align-items: center;
+          justify-content: center;
+          background-color: rgba(0, 0, 0, 0.5);
+          width: 100%;
+          height: 100%;
+          p {
+            margin: 20px;
+            text-align: justify;
+          }
+        }
       }
     }
   }

@@ -12,6 +12,7 @@ const Character = ({ favorites, addFavComics, isFavorites }) => {
   const [title, setTitle] = useState(``); //Dynamic title when user choose a comics
   const [description, setDescription] = useState(``); //Dynamic description when user choose a comics
   const [comicsId, setComicsId] = useState(``);
+  const [test, setTest] = useState(null);
 
   const [highLight, setHighLight] = useState(); //Use to define what comics is highlighted
 
@@ -97,6 +98,8 @@ const Character = ({ favorites, addFavComics, isFavorites }) => {
                   setHighLight={setHighLight} //hightLight will change with onClick event
                   highLight={highLight}
                   setComicsId={setComicsId}
+                  test={test}
+                  setTest={setTest}
                 />
               );
             })}
@@ -109,7 +112,7 @@ const Character = ({ favorites, addFavComics, isFavorites }) => {
                 <FontAwesomeIcon
                   icon="fa-solid fa-star"
                   className={
-                    isFavorites("comics", data) ? "star favorites" : "star"
+                    isFavorites("comics", test) ? "star favorites" : "star"
                     // favorites.comics.indexOf(comicsId || data.comics[0]._id) >
                     // -1
                     //   ? "star favorites"
@@ -118,7 +121,7 @@ const Character = ({ favorites, addFavComics, isFavorites }) => {
                   size="xl"
                   onClick={() => {
                     //anonymous function, addFavComics need parameters and will called if anonymous function not here (it will crash)
-                    addFavComics(comicsId || data.comics[0]._id, "comics");
+                    addFavComics(test || data.comics[0], "comics");
                   }}
                 />
               </div>
