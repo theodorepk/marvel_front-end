@@ -11,7 +11,7 @@ const Character = ({ favorites, addFavComics, isFavorites }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [title, setTitle] = useState(``); //Dynamic title when user choose a comics
   const [description, setDescription] = useState(``); //Dynamic description when user choose a comics
-  const [comicsId, setComicsId] = useState(``);
+
   const [comicsInfo, setComicsInfo] = useState(null);
 
   const [highLight, setHighLight] = useState(); //Use to define what comics is highlighted
@@ -96,7 +96,6 @@ const Character = ({ favorites, addFavComics, isFavorites }) => {
                   setDescription={setDescription} // onClick cannot be setup here
                   setHighLight={setHighLight} //hightLight will change with onClick event
                   highLight={highLight}
-                  setComicsId={setComicsId}
                   comicsInfo={comicsInfo}
                   setComicsInfo={setComicsInfo}
                 />
@@ -114,10 +113,6 @@ const Character = ({ favorites, addFavComics, isFavorites }) => {
                     isFavorites("comics", comicsInfo || data.comics[0])
                       ? "star favorites"
                       : "star"
-                    // favorites.comics.indexOf(comicsId || data.comics[0]._id) >
-                    // -1
-                    //   ? "star favorites"
-                    //   : "star"
                   }
                   size="xl"
                   onClick={() => {
