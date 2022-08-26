@@ -29,7 +29,7 @@ const Comics = ({ title, favorites, addFavComics, isFavorites }) => {
       {/*Loader from https://loading.io/css/*/}
     </div>
   ) : (
-    <div className="comicsPage">
+    <div className="comicsPage container">
       <div className="allComics">
         {data.results.map((element, index) => {
           return (

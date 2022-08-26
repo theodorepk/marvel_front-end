@@ -30,7 +30,7 @@ const Characters = ({ name, favorites, addFavComics, isFavorites }) => {
       {/*Loader from https://loading.io/css/*/}
     </div>
   ) : (
-    <div className="charactersPage">
+    <div className="charactersPage container">
       <div className="allCharacters">
         {data.results.map((element, index) => {
           return (
