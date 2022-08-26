@@ -12,7 +12,7 @@ const Character = ({ favorites, addFavComics, isFavorites }) => {
   const [title, setTitle] = useState(``); //Dynamic title when user choose a comics
   const [description, setDescription] = useState(``); //Dynamic description when user choose a comics
   const [comicsId, setComicsId] = useState(``);
-  const [test, setTest] = useState(null);
+  const [comicsInfo, setComicsInfo] = useState(null);
 
   const [highLight, setHighLight] = useState(); //Use to define what comics is highlighted
 
@@ -52,7 +52,6 @@ const Character = ({ favorites, addFavComics, isFavorites }) => {
     </div>
   ) : (
     <div className="characterPage container">
-      {console.log(data._id)}
       <div className="characterPresentation">
         <h2>{data.name}</h2>
         <div>
@@ -92,14 +91,14 @@ const Character = ({ favorites, addFavComics, isFavorites }) => {
                 <CharacterComics
                   key={index}
                   index={index}
-                  comicsInfo={element}
+                  element={element}
                   setTitle={setTitle} //send to the component, states will changes with an Onclick on the component
                   setDescription={setDescription} // onClick cannot be setup here
                   setHighLight={setHighLight} //hightLight will change with onClick event
                   highLight={highLight}
                   setComicsId={setComicsId}
-                  test={test}
-                  setTest={setTest}
+                  comicsInfo={comicsInfo}
+                  setComicsInfo={setComicsInfo}
                 />
               );
             })}
@@ -112,7 +111,9 @@ const Character = ({ favorites, addFavComics, isFavorites }) => {
                 <FontAwesomeIcon
                   icon="fa-solid fa-star"
                   className={
-                    isFavorites("comics", test) ? "star favorites" : "star"
+                    isFavorites("comics", comicsInfo || data.comics[0])
+                      ? "star favorites"
+                      : "star"
                     // favorites.comics.indexOf(comicsId || data.comics[0]._id) >
                     // -1
                     //   ? "star favorites"
@@ -121,7 +122,7 @@ const Character = ({ favorites, addFavComics, isFavorites }) => {
                   size="xl"
                   onClick={() => {
                     //anonymous function, addFavComics need parameters and will called if anonymous function not here (it will crash)
-                    addFavComics(test || data.comics[0], "comics");
+                    addFavComics(comicsInfo || data.comics[0], "comics");
                   }}
                 />
               </div>

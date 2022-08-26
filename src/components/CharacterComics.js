@@ -1,23 +1,24 @@
 // import { useState } from "react";
 
 const CharacterComics = ({
-  comicsInfo,
   setTitle,
   setDescription,
   setHighLight,
   highLight,
   index,
   setComicsId,
-  test,
-  setTest,
+  comicsInfo,
+  setComicsInfo,
+  element,
 }) => {
   return (
     <div
       onClick={() => {
-        setTitle(comicsInfo.title); //onClick to collecte the comics Data
-        setDescription(comicsInfo.description);
-        setComicsId(comicsInfo._id);
-        setTest(comicsInfo);
+        setTitle(element.title); //onClick to collecte the comics Data
+        setDescription(element.description);
+        // setComicsId(element._id);
+        setComicsInfo(element);
+        console.log(comicsInfo);
         const newTab = [...highLight];
         //when the comics cover is clicked, it's position in highlight array is set to true (and the other position are set to false)
         for (let i = 0; i < newTab.length; i++) {
@@ -32,7 +33,7 @@ const CharacterComics = ({
       className={highLight[index] ? `highlight` : ``} //in highlight array, if the comics' position is "true" , it gain the "highlight" class which change the size of the comics' cover
     >
       <img
-        src={`${comicsInfo.thumbnail.path}.${comicsInfo.thumbnail.extension}`}
+        src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
         alt=""
         className="comicsCover"
       />
