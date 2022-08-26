@@ -71,7 +71,7 @@ const Characters = ({ name, favorites, addFavComics, isFavorites }) => {
               onClick={() => {
                 setIsLoading(true);
                 setPage((prevState) => prevState - 1); //more secure then setState(state +1)
-                setSkip((prevState) => prevState - 50);
+                setSkip((prevState) => prevState - 100);
               }}
             >
               Précédent
@@ -82,7 +82,7 @@ const Characters = ({ name, favorites, addFavComics, isFavorites }) => {
             onClick={() => {
               setIsLoading(true);
               setPage((prevState) => prevState + 1);
-              setSkip((prevState) => prevState + 50);
+              setSkip((prevState) => prevState + 100);
             }}
           >
             Suivant

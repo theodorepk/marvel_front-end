@@ -64,9 +64,6 @@ const Character = ({ favorites, addFavComics, isFavorites }) => {
             icon="fa-solid fa-star"
             className={
               isFavorites("characters", data) ? "star favorites" : "star"
-              // favorites.characters.indexOf(data._id) > -1
-              //   ? "starCharacter favorites"
-              //   : "starCharacter"
             }
             size="2x"
             onClick={() => {
@@ -123,7 +120,6 @@ const Character = ({ favorites, addFavComics, isFavorites }) => {
               </div>
               <p>{description || data.comics[0].description}</p>
             </div>
-            <img src="" alt="" />
           </div>
         </div>
       ) : undefined}

@@ -20,6 +20,7 @@
   padding: 20px;
   margin-bottom: 30px;
   align-items: center;
+  max-width: 800px;
 
   h2 {
     font-size: 24px;
@@ -31,13 +32,12 @@
     .profilePicture {
       width: 100%;
       aspect-ratio: 1/1; //give the profile picture a 1:1 ratio
-      margin-top: 20px;
       object-fit: cover;
     }
     .starCharacter {
       position: absolute;
       right: 15px;
-      top: 30px;
+      top: 40px;
       color: rgba(0, 0, 0, 0.8);
     }
     .favorites {
@@ -131,7 +131,7 @@
   }
 }
 
-@media (min-width: 550px) {
+@media (min-width: 925px) {
   .characterPresentation {
     flex-direction: column;
     // display: block;
@@ -159,7 +159,32 @@
   }
 }
 
-@media (min-width: 821px) {
-  .characterPresentation {
+@media (min-width: 1200px) {
+  .characterComics {
+    .comicsCover {
+      height: 314.6px;
+      width: 205.7px;
+    }
+  }
+
+  .highlight {
+    .comicsCover {
+      height: 371.8px;
+      width: 243.1px;
+    }
+  }
+
+  .comicsPart {
+    h2 {
+      font-size: 32px;
+    }
+    .title {
+      h3 {
+        font-size: 30px;
+      }
+    }
+    p {
+      font-size: 22px;
+    }
   }
 }

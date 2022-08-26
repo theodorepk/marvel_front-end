@@ -6,7 +6,6 @@ const CharacterComics = ({
   setHighLight,
   highLight,
   index,
-  setComicsId,
   comicsInfo,
   setComicsInfo,
   element,
@@ -16,7 +15,6 @@ const CharacterComics = ({
       onClick={() => {
         setTitle(element.title); //onClick to collecte the comics Data
         setDescription(element.description);
-        // setComicsId(element._id);
         setComicsInfo(element);
         console.log(comicsInfo);
         const newTab = [...highLight];
