@@ -18,10 +18,11 @@ const Favorites = ({ favorites }) => {
           }}
         >
           <h1>Personnages</h1>
-          <FontAwesomeIcon
-            icon="fa-solid fa-angle-down"
-            className="angleDown"
-          />
+          {visible[0] ? (
+            <FontAwesomeIcon icon="fa-solid fa-angle-down" className="angle" />
+          ) : (
+            <FontAwesomeIcon icon="fa-solid fa-angle-up" className="angle" />
+          )}
         </div>
         <div className={`favoritesCharacter ${!visible[0] && `notVisible`}`}>
           {favorites.characters.map((element, index) => {
@@ -56,10 +57,11 @@ const Favorites = ({ favorites }) => {
           }}
         >
           <h1>Comics</h1>
-          <FontAwesomeIcon
-            icon="fa-solid fa-angle-down"
-            className="angleDown"
-          />
+          {visible[1] ? (
+            <FontAwesomeIcon icon="fa-solid fa-angle-down" className="angle" />
+          ) : (
+            <FontAwesomeIcon icon="fa-solid fa-angle-up" className="angle" />
+          )}
         </div>
 
         <div className={`favoritesComics ${!visible[1] && `notVisible`}`}>

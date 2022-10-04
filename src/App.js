@@ -17,6 +17,7 @@ import {
   faAngleRight,
   faStar,
   faAngleDown,
+  faAngleUp,
   // faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
 // import { farStar } from "@fortawesome/free-regular-svg-icons";
@@ -30,7 +31,8 @@ library.add(
   faUser,
   faAngleRight,
   faStar,
-  faAngleDown
+  faAngleDown,
+  faAngleUp
   //  faArrowRightToBracket
 );
 
