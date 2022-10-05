@@ -5,7 +5,7 @@ const MiniComics = ({ addFavComics, comics, isFavorites }) => {
   const [available, setAvailable] = useState(true);
 
   return (
-    available && (
+    available && ( //rend only if the comcis cover image is available
       <div
         className="comics"
         onClick={() => {
@@ -31,7 +31,7 @@ const MiniComics = ({ addFavComics, comics, isFavorites }) => {
             className="comicsCover"
             src={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
             alt="couverture du comics"
-            onError={() => setAvailable(false)}
+            onError={() => setAvailable(false)} //if the the url is wrong or does'nt exist miniComics will not be rendrer
           />
           <h2 className="comicsTitle">{comics.title}</h2>
         </div>

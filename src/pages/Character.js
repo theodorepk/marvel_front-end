@@ -5,7 +5,7 @@ import axios from "axios";
 import CharacterComics from "../components/CharacterComics";
 
 //
-const Character = ({ favorites, addFavComics, isFavorites }) => {
+const Character = ({ addFavComics, isFavorites }) => {
   const { id } = useParams();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
