@@ -36,6 +36,7 @@ const Character = ({ addFavComics, isFavorites }) => {
             }
           }
         };
+
         highLighting(response.data.comics.length);
         setHighLight(newTab); //Array with the first element "true", all the other are "false"
       } catch (error) {
@@ -54,7 +55,12 @@ const Character = ({ addFavComics, isFavorites }) => {
     <div className="characterPage container">
       <div className="characterPresentation">
         <h2>{data.name}</h2>
-        <div>
+        <div
+          onClick={() => {
+            //anonymous function, addFavComics need parameters and will called if anonymous function not here (it will crash)
+            addFavComics(data, "characters");
+          }}
+        >
           <img
             className="profilePicture"
             src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
@@ -66,10 +72,6 @@ const Character = ({ addFavComics, isFavorites }) => {
               isFavorites("characters", data) ? "star favorites" : "star"
             }
             size="2x"
-            onClick={() => {
-              //anonymous function, addFavComics need parameters and will called if anonymous function not here (it will crash)
-              addFavComics(data, "characters");
-            }}
           />
 
           {data.description && (
@@ -86,7 +88,7 @@ const Character = ({ addFavComics, isFavorites }) => {
             {data.comics.map((element, index) => {
               return (
                 <CharacterComics
-                  key={index}
+                  key={element._id}
                   index={index}
                   element={element}
                   setTitle={setTitle} //send to the component, states will changes with an Onclick on the component

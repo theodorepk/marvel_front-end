@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const Favorites = ({ favorites }) => {
   const [visible, setHidden] = useState([true, true]);
-  console.log(visible[1]);
 
   return (
     <div className="container">
@@ -17,30 +16,30 @@ const Favorites = ({ favorites }) => {
             setHidden(newTab);
           }}
         >
-          <h1>Personnages</h1>
           {visible[0] ? (
             <FontAwesomeIcon icon="fa-solid fa-angle-down" className="angle" />
           ) : (
-            <FontAwesomeIcon icon="fa-solid fa-angle-up" className="angle" />
+            <FontAwesomeIcon icon="fa-solid fa-angle-right" className="angle" />
           )}
+          <h1>Personnages</h1>
         </div>
         <div className={`favoritesCharacter ${!visible[0] && `notVisible`}`}>
-          {favorites.characters.map((element, index) => {
+          {favorites.characters.map((character) => {
             return (
               <Link
-                key={index}
+                key={character._id}
                 className="characterFav"
-                to={`/character/${element._id}`}
+                to={`/character/${character._id}`}
               >
                 <div>
                   <div>
-                    <p>{element.description}</p>
+                    <p>{character.description}</p>
                   </div>
                   <img
-                    src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
+                    src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
                     alt="avatar du personnage"
                   />
-                  <h2>{element.name}</h2>
+                  <h2>{character.name}</h2>
                 </div>
               </Link>
             );
@@ -56,27 +55,27 @@ const Favorites = ({ favorites }) => {
             setHidden(newTab);
           }}
         >
-          <h1>Comics</h1>
           {visible[1] ? (
             <FontAwesomeIcon icon="fa-solid fa-angle-down" className="angle" />
           ) : (
-            <FontAwesomeIcon icon="fa-solid fa-angle-up" className="angle" />
+            <FontAwesomeIcon icon="fa-solid fa-angle-right" className="angle" />
           )}
+          <h1>Comics</h1>
         </div>
 
         <div className={`favoritesComics ${!visible[1] && `notVisible`}`}>
-          {favorites.comics.map((element, index) => {
+          {favorites.comics.map((comics) => {
             return (
-              <div key={index} className="comicsFav">
+              <div key={comics._id} className="comicsFav">
                 <div>
                   <div>
-                    <p>{element.description}</p>
+                    <p>{comics.description}</p>
                   </div>
                   <img
-                    src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
+                    src={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
                     alt="pochette du comics"
                   />
-                  <h2>{element.title}</h2>
+                  <h2>{comics.title}</h2>
                 </div>
               </div>
             );

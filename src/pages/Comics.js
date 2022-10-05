@@ -31,10 +31,10 @@ const Comics = ({ title, favorites, addFavComics, isFavorites }) => {
   ) : (
     <div className="comicsPage container">
       <div className="allComics">
-        {data.results.map((comics, index) => {
+        {data.results.map((comics) => {
           return (
             <MiniComics
-              key={index}
+              key={comics._id}
               addFavComics={addFavComics}
               comics={comics}
               isFavorites={isFavorites}

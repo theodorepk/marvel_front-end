@@ -32,34 +32,36 @@ const Characters = ({ name, favorites, addFavComics, isFavorites }) => {
   ) : (
     <div className="charactersPage container">
       <div className="allCharacters">
-        {data.results.map((element, index) => {
+        {data.results.map((character) => {
           return (
-            <div key={index} className="avatar">
+            <div key={character._id} className="avatar">
               <FontAwesomeIcon
                 icon="fa-solid fa-star"
                 className={
-                  // favorites.characters.indexOf(element._id) > -1
+                  // favorites.characters.indexOf(character._id) > -1
                   // false
-                  isFavorites("characters", element) ? "star favorites" : "star"
+                  isFavorites("characters", character)
+                    ? "star favorites"
+                    : "star"
                 }
                 size="2xl"
                 onClick={() => {
-                  addFavComics(element, "characters");
+                  addFavComics(character, "characters");
                 }}
               />
               <Link
                 className="character"
-                to={`/character/${element._id}`} //go to character by id
+                to={`/character/${character._id}`} //go to character by id
               >
                 <div>
-                  <p>{element.description}</p>
+                  <p>{character.description}</p>
                 </div>
                 <img
                   className="characterPicture"
-                  src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
+                  src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
                   alt="couverture du comics"
                 />
-                <h2 className="characterName">{element.name}</h2>
+                <h2 className="characterName">{character.name}</h2>
               </Link>
             </div>
           );

@@ -16,7 +16,6 @@ const CharacterComics = ({
         setTitle(element.title); //onClick to collecte the comics Data
         setDescription(element.description);
         setComicsInfo(element);
-        console.log(comicsInfo);
         const newTab = [...highLight];
         //when the comics cover is clicked, it's position in highlight array is set to true (and the other position are set to false)
         for (let i = 0; i < newTab.length; i++) {
