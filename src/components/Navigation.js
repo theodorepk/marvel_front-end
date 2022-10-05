@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 const Navigation = ({ setVisible, menuIsVisible }) => {
   return (
     <nav className={!menuIsVisible ? "menuInvisible" : undefined}>
-      <Link to={"/"} className="link">
+      <Link to={"/"} className="link" style={{ textDecoration: "none" }}>
         <div>
           {/* div are here to increase the click zone without enlarge the icons */}
-          <FontAwesomeIcon icon="fa-mask" size="xl" />
+          <FontAwesomeIcon
+            icon="fa-mask"
+            size="xl"
+            style={{ textDecoration: "none" }}
+          />
           <span>Personnages</span>
         </div>
       </Link>
@@ -22,13 +26,17 @@ const Navigation = ({ setVisible, menuIsVisible }) => {
         />
         <span>Search</span>
       </div>
-      <Link to={"/comics"} className="link">
+      <Link to={"/comics"} className="link" style={{ textDecoration: "none" }}>
         <div>
           <FontAwesomeIcon icon="book" size="xl" />
           <span>Comics</span>
         </div>
       </Link>
-      <Link to={"/favorites"} className="link">
+      <Link
+        to={"/favorites"}
+        className="link"
+        style={{ textDecoration: "none" }}
+      >
         <div>
           <FontAwesomeIcon icon="fa-solid fa-star" size="xl" />
           <span>Favoris</span>

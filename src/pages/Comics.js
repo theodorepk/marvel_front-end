@@ -1,6 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import MiniComics from "../components/MiniComics";
 
 const Comics = ({ title, favorites, addFavComics, isFavorites }) => {
   const [page, setPage] = useState(1);
@@ -31,37 +31,14 @@ const Comics = ({ title, favorites, addFavComics, isFavorites }) => {
   ) : (
     <div className="comicsPage container">
       <div className="allComics">
-        {data.results.map((element, index) => {
+        {data.results.map((comics, index) => {
           return (
-            <div
+            <MiniComics
               key={index}
-              className="comics"
-              onClick={() => {
-                //anonymous function, addFavComics need parameters and will called if anonymous function not here (it will crash)
-                addFavComics(element, "comics");
-              }}
-            >
-              <FontAwesomeIcon
-                icon="fa-solid fa-star"
-                className={
-                  // favorites.comics.indexOf(element._id) > -1
-                  isFavorites("comics", element) ? "star favorites" : "star"
-                }
-                size="2xl"
-              />
-
-              <div>
-                <div>
-                  <p>{element.description}</p>
-                </div>
-                <img
-                  className="comicsCover"
-                  src={`${element.thumbnail.path}.${element.thumbnail.extension}`}
-                  alt="couverture du comics"
-                />
-                <h2 className="comicsTitle">{element.title}</h2>
-              </div>
-            </div>
+              addFavComics={addFavComics}
+              comics={comics}
+              isFavorites={isFavorites}
+            />
           );
         })}
       </div>
