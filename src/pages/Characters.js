@@ -80,15 +80,17 @@ const Characters = ({ name, favorites, addFavComics, isFavorites }) => {
             </button>
           )}
           <span className="page">{page}</span>
-          <button
-            onClick={() => {
-              setIsLoading(true);
-              setPage((prevState) => prevState + 1);
-              setSkip((prevState) => prevState + 100);
-            }}
-          >
-            Suivant
-          </button>
+          {Math.ceil(data.count / 100) !== page && (
+            <button
+              onClick={() => {
+                setIsLoading(true);
+                setPage((prevState) => prevState + 1);
+                setSkip((prevState) => prevState + 100);
+              }}
+            >
+              Suivant
+            </button>
+          )}
         </div>
       </div>
     </div>
