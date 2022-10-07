@@ -24,8 +24,10 @@ const MiniComics = ({ addFavComics, comics, isFavorites }) => {
         />
 
         <div>
-          <div>
-            <p>{comics.description}</p>
+          <div className="comicsDescription">
+            <div>
+              <p>{comics.description}</p>
+            </div>
           </div>
           <img
             className="comicsCover"

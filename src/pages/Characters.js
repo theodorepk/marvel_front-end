@@ -5,7 +5,7 @@ import axios from "axios";
 
 const Characters = ({ name, favorites, addFavComics, isFavorites }) => {
   const [page, setPage] = useState(1);
-  const [data, setData] = useState();
+  const [data, setData] = useState({});
   const [skip, setSkip] = useState(0);
   const [isLoading, setIsLoading] = useState(true); //isLoading state need to be delcare directly here (not in App.js)
 

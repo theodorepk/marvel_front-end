@@ -129,6 +129,18 @@
         justify-content: center;
         color: white;
 
+        .comicsDescription {
+          div {
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0);
+            max-height: 260px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            overflow: hidden;
+          }
+        }
+
         div {
           display: flex;
           position: absolute;
